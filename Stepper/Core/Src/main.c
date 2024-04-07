@@ -89,7 +89,7 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
-  uint32_t delay = 50;
+  uint32_t delay = 25;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -98,16 +98,33 @@ int main(void)
   {
 	  //HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
 
-	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);//Clock wise rotation
+	  int lock = 0;
 
-	  		for(int i=1;i<=200;i++){  //Moving stepper motor forward
-	  			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_SET);
-	  			HAL_Delay(delay);
-	  			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
-	  			HAL_Delay(delay);
-	  		}
+    if(lock){
+      HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);//Clock wise rotation
+      lock = 0;
+    }else{
+      HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_RESET);// Counter Clock wise rotation
+      lock = 1;
+    }
 
-	  	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_RESET);//Anti clock wise rotation
+    for(int i=1;i<=100;i++){  //Moving stepper motor forward
+      HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_SET);
+      HAL_Delay(delay);
+      HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
+      HAL_Delay(delay);
+    }
+    HAL_Delay(1000);
+    
+
+	  	// 	for(int i=1;i<=200;i++){  //Moving stepper motor forward
+	  	// 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_SET);
+	  	// 		HAL_Delay(delay);
+	  	// 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
+	  	// 		HAL_Delay(delay);
+	  	// 	}
+
+	  	// HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_RESET);//Anti clock wise rotation
 
     /* USER CODE END WHILE */
 
