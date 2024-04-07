@@ -41,6 +41,8 @@
 /* Private variables ---------------------------------------------------------*/
 SPI_HandleTypeDef hspi2;
 
+UART_HandleTypeDef huart2;
+
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -49,6 +51,7 @@ SPI_HandleTypeDef hspi2;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI2_Init(void);
+static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -128,194 +131,35 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_SPI2_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-/*
-  //RESET LCD
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_7, GPIO_PIN_RESET);
-	HAL_Delay(100);
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_7, GPIO_PIN_SET);
-	HAL_Delay(50);
 
-  //BEGIN INIT CODE (ngl don't know whats happening here but hope it works lel)
-  	ILI9488_SendCommand(0XF7);
-	ILI9488_SendData(0xA9);
-	ILI9488_SendData(0x51);
-	ILI9488_SendData(0x2C);
-	ILI9488_SendData(0x82);
-	ILI9488_SendCommand(0xC0);
-	ILI9488_SendData(0x11);
-	ILI9488_SendData(0x09);
-	ILI9488_SendCommand(0xC1);
-	ILI9488_SendData(0x41);
-	ILI9488_SendCommand(0XC5);
-	ILI9488_SendData(0x00);
-	ILI9488_SendData(0x0A);
-	ILI9488_SendData(0x80);
-	ILI9488_SendCommand(0xB1);
-	ILI9488_SendData(0xB0);
-	ILI9488_SendData(0x11);
-	ILI9488_SendCommand(0xB4);
-	ILI9488_SendData(0x02);
-	ILI9488_SendCommand(0xB6);
-	ILI9488_SendData(0x02);
-	ILI9488_SendData(0x42);
-	ILI9488_SendCommand(0xB7);
-	ILI9488_SendData(0xc6);
-	ILI9488_SendCommand(0xBE);
-	ILI9488_SendData(0x00);
-	ILI9488_SendData(0x04);
-	ILI9488_SendCommand(0xE9);
-	ILI9488_SendData(0x00);
-	ILI9488_SendCommand(0x36);
-	ILI9488_SendData((1<<3)|(0<<7)|(1<<6)|(1<<5));
-	ILI9488_SendCommand(0x3A);
-	ILI9488_SendData(0x66);
-	ILI9488_SendCommand(0xE0);
-	ILI9488_SendData(0x00);
-	ILI9488_SendData(0x07);
-	ILI9488_SendData(0x10);
-	ILI9488_SendData(0x09);
-	ILI9488_SendData(0x17);
-	ILI9488_SendData(0x0B);
-	ILI9488_SendData(0x41);
-	ILI9488_SendData(0x89);
-	ILI9488_SendData(0x4B);
-	ILI9488_SendData(0x0A);
-	ILI9488_SendData(0x0C);
-	ILI9488_SendData(0x0E);
-	ILI9488_SendData(0x18);
-	ILI9488_SendData(0x1B);
-	ILI9488_SendData(0x0F);
-	ILI9488_SendCommand(0XE1);
-	ILI9488_SendData(0x00);
-	ILI9488_SendData(0x17);
-	ILI9488_SendData(0x1A);
-	ILI9488_SendData(0x04);
-	ILI9488_SendData(0x0E);
-	ILI9488_SendData(0x06);
-	ILI9488_SendData(0x2F);
-	ILI9488_SendData(0x45);
-	ILI9488_SendData(0x43);
-	ILI9488_SendData(0x02);
-	ILI9488_SendData(0x0A);
-	ILI9488_SendData(0x09);
-	ILI9488_SendData(0x32);
-	ILI9488_SendData(0x36);
-	ILI9488_SendData(0x0F);
-	ILI9488_SendCommand(0x11);
-	HAL_Delay(120);
-	ILI9488_SendCommand(0x29);
-	ILI9488_SendCommand(0x36);
-	ILI9488_SendData((1<<3)|(0<<6)|(0<<7));//BGR==1,MY==0,MX==0,MV==0\
-
-  	//SET DIRECTION [HORIZONTAL]
-	ILI9488_SendCommand(0x2A); //set window size. x direction. In this case, we're taking the entire display.
-	ILI9488_SendData(0>>8);
-	ILI9488_SendData(0x00FF&0);
-	ILI9488_SendData(479>>8);
-	ILI9488_SendData(0x00FF&479>>8);
-
-	ILI9488_SendCommand(0x2B); //set window size. y direction. In this case, we're taking the entire display.
-	ILI9488_SendData(0>>8);
-	ILI9488_SendData(0x00FF&0);
-	ILI9488_SendData(479>>8);
-	ILI9488_SendData(0x00FF&479	);
-
-	ILI9488_SendCommand(0x2C); //display ram prep command
-
-	//START WRITING WHITE SCREEN:
-	unsigned int i,m;
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_0, GPIO_PIN_RESET); //LCD CHIP SELECT
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_7, GPIO_PIN_SET); //SET LCD TO RESET
-
-	for(i=0;i<319;i++)
-		{
-	    for(m=0;m<479;m++)
-	    {
-				ILI9488_SendData((0x07FF>>8)&0xF8);//RED
-				ILI9488_SendData((0x07FF>>3)&0xFC);//GREEN
-				ILI9488_SendData(0x07FF<<3);//BLUE
-			}
-		}
-	HAL_GPIO_WritePin(GPIOD, GPIO_PIN_0, GPIO_PIN_SET); //LCD CHIP SELECT
-*/
-  ILI9488_Init();
+ILI9488_Init();
 HAL_Delay(1000);
 setRotation(1);
+
+char timereq [2] = {0x10, 0x01};
+char buffer [20];
 
 
 
   /* USER CODE END 2 */
+fillScreen(ILI9488_WHITE);
+
+
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
 	//
-	  fillScreen(ILI9488_NAVY);
-	  HAL_Delay(300);
-	   	    	    fillScreen(ILI9488_BLUE);
-	   	   	  HAL_Delay(300);
-	   	    	    fillScreen(ILI9488_DARKGREEN);
-	   	   	  HAL_Delay(300);
-	   	    	    fillScreen(ILI9488_MAROON);
-	   	   	  HAL_Delay(300);
-	   	    	    fillScreen(ILI9488_PURPLE);
-	   	   	  HAL_Delay(300);
-	   	    	    fillScreen(ILI9488_OLIVE);
-	   	   	  HAL_Delay(300);
-	   	    	    fillScreen(ILI9488_LIGHTGREY);
-	   	   	  HAL_Delay(300);
-	   	    	    fillScreen(ILI9488_GREEN);
-	   	   	  HAL_Delay(300);
-	   	    	  fillScreen(ILI9488_NAVY);
-	   	 	  HAL_Delay(300);
-	   	    	    	    fillScreen(ILI9488_BLUE);
-	   	    	   	  HAL_Delay(300);
-	   	    	    	    fillScreen(ILI9488_DARKGREEN);
-	   	    	   	  HAL_Delay(300);
-	   	    	    	    fillScreen(ILI9488_MAROON);
-	   	    	   	  HAL_Delay(300);
-	   	    	    	    fillScreen(ILI9488_PURPLE);
-	   	    	   	  HAL_Delay(300);
-	   	    	    	    fillScreen(ILI9488_OLIVE);
-	   	    	   	  HAL_Delay(300);
-	   	    	    	    fillScreen(ILI9488_LIGHTGREY);
-	   	    	   	  HAL_Delay(300);
-	   	    	    	    fillScreen(ILI9488_GREEN);
-	   	    	   	  HAL_Delay(300);
-	   	    	    	  fillScreen(ILI9488_NAVY);
-	   	    	 	  HAL_Delay(300);
-	   	    	    	    	    fillScreen(ILI9488_BLUE);
-	   	    	    	   	  HAL_Delay(300);
-	   	    	    	    	    fillScreen(ILI9488_DARKGREEN);
-	   	    	    	   	  HAL_Delay(300);
-	   	    	    	    	    fillScreen(ILI9488_MAROON);
-	   	    	    	   	  HAL_Delay(300);
-	   	    	    	    	    fillScreen(ILI9488_PURPLE);
-	   	    	    	   	  HAL_Delay(300);
-	   	    	    	    	    fillScreen(ILI9488_OLIVE);
-	   	    	    	   	  HAL_Delay(300);
-	   	    	    	    	    fillScreen(ILI9488_LIGHTGREY);
-	   	    	    	   	  HAL_Delay(300);
-	   	    	    	    	    fillScreen(ILI9488_GREEN);
-	   	    	    	   	  HAL_Delay(300);
-	   	    	    fillRect(0, 10, 480, 10, ILI9488_BLUE);
-	   	   	  HAL_Delay(300);
-	   	    	    fillRect(0, 40, 480, 10, ILI9488_DARKGREEN);
-	   	   	  HAL_Delay(300);
-	   	    	    fillRect(0, 60, 480, 10, ILI9488_MAROON);
-	   	   	  HAL_Delay(300);
-	   	    	    fillRect(0, 80, 480, 10, ILI9488_PURPLE);
-	   	   	  HAL_Delay(300);
-	   	    	    fillRect(0, 100, 480, 10, ILI9488_OLIVE);
-	   	   	  HAL_Delay(300);
-	   	    	    fillRect(0, 120, 480, 10, ILI9488_LIGHTGREY);
-	   	   	  HAL_Delay(300);
-	   	    	    fillRect(0, 140, 480, 10, ILI9488_BLUE);
-	   	   	  HAL_Delay(300);
-	   	    	    fillRect(460, 220, 20, 100, ILI9488_BLUE);
-	   	   	  HAL_Delay(300);
+	  HAL_UART_Transmit(&huart2, timereq, 2, 100);
+	  HAL_UART_Receive(&huart2, buffer, 19, 100);
+	  buffer[19] = '\0';
+	  ILI9488_printText(buffer, 10, 10, ILI9488_BLACK, ILI9488_WHITE, 2);
+
+	  HAL_Delay(30000);
+
 
 
     /* USER CODE END WHILE */
@@ -416,6 +260,54 @@ static void MX_SPI2_Init(void)
 }
 
 /**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_NONE;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart2.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&huart2, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart2, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -427,6 +319,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
