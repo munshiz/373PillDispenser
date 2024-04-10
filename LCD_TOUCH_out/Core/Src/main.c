@@ -256,90 +256,227 @@ fillScreen(ILI9488_WHITE);
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+   //the keys:
+
+   fillRect(100, 30,75,75, ILI9488_RED);
+   drawCharTest(130, 55, '1', ILI9488_BLACK,ILI9488_RED, 3);
+   fillRect(200, 30,75,75, ILI9488_RED);
+   drawCharTest(230, 55, '2', ILI9488_BLACK,ILI9488_RED, 3);
+   fillRect(300, 30,75,75, ILI9488_RED);
+   drawCharTest(319, 55, '3', ILI9488_BLACK,ILI9488_RED, 3);
+   fillRect(100, 130,75,75, ILI9488_RED);
+   drawCharTest(130, 150, '4', ILI9488_BLACK,ILI9488_RED, 3);
+   fillRect(200, 130,75,75, ILI9488_RED);
+   drawCharTest(230, 150, '5', ILI9488_BLACK,ILI9488_RED, 3);
+   fillRect(300, 130,75,75, ILI9488_RED);
+   drawCharTest(319, 150, '6', ILI9488_BLACK,ILI9488_RED, 3);
+   fillRect(100, 230,75,75, ILI9488_RED);
+   drawCharTest(130, 250, '7', ILI9488_BLACK,ILI9488_RED, 3);
+   fillRect(200, 230,75,75, ILI9488_RED);
+   drawCharTest(230, 250, '8', ILI9488_BLACK,ILI9488_RED, 3);
+   fillRect(300, 230,75,75, ILI9488_RED);
+   drawCharTest(319, 250, '9', ILI9488_BLACK,ILI9488_RED, 3);
+   //drawChar(135, 61, '1', ILI9488_BLACK,ILI9488_RED, 1);
+
+
+   uint16_t count = 0;
+   uint16_t entered[10];
   while (1)
   {
-	//
-	  /*fillScreen(ILI9488_NAVY);
-	  HAL_Delay(300);
-	   	    	    fillScreen(ILI9488_BLUE);
-	   	   	  HAL_Delay(300);
-	   	    	    fillScreen(ILI9488_DARKGREEN);
-	   	   	  HAL_Delay(300);
-	   	    	    fillScreen(ILI9488_MAROON);
-	   	   	  HAL_Delay(300);
-	   	    	    fillScreen(ILI9488_PURPLE);
-	   	   	  HAL_Delay(300);
-	   	    	    fillScreen(ILI9488_OLIVE);
-	   	   	  HAL_Delay(300);
-	   	    	    fillScreen(ILI9488_LIGHTGREY);
-	   	   	  HAL_Delay(300);
-	   	    	    fillScreen(ILI9488_GREEN);
-	   	   	  HAL_Delay(300);
-	   	    	  fillScreen(ILI9488_NAVY);
-	   	 	  HAL_Delay(300);
-	   	    	    	    fillScreen(ILI9488_BLUE);
-	   	    	   	  HAL_Delay(300);
-	   	    	    	    fillScreen(ILI9488_DARKGREEN);
-	   	    	   	  HAL_Delay(300);
-	   	    	    	    fillScreen(ILI9488_MAROON);
-	   	    	   	  HAL_Delay(300);
-	   	    	    	    fillScreen(ILI9488_PURPLE);
-	   	    	   	  HAL_Delay(300);
-	   	    	    	    fillScreen(ILI9488_OLIVE);
-	   	    	   	  HAL_Delay(300);
-	   	    	    	    fillScreen(ILI9488_LIGHTGREY);
-	   	    	   	  HAL_Delay(300);
-	   	    	    	    fillScreen(ILI9488_GREEN);
-	   	    	   	  HAL_Delay(300);
-	   	    	    	  fillScreen(ILI9488_NAVY);
-	   	    	 	  HAL_Delay(300);
-	   	    	    	    	    fillScreen(ILI9488_BLUE);
-	   	    	    	   	  HAL_Delay(300);
-	   	    	    	    	    fillScreen(ILI9488_DARKGREEN);
-	   	    	    	   	  HAL_Delay(300);
-	   	    	    	    	    fillScreen(ILI9488_MAROON);
-	   	    	    	   	  HAL_Delay(300);
-	   	    	    	    	    fillScreen(ILI9488_PURPLE);
-	   	    	    	   	  HAL_Delay(300);
-	   	    	    	    	    fillScreen(ILI9488_OLIVE);
-	   	    	    	   	  HAL_Delay(300);
-	   	    	    	    	    fillScreen(ILI9488_LIGHTGREY);
-	   	    	    	   	  HAL_Delay(300);
-	   	    	    	    	    fillScreen(ILI9488_GREEN);
-	   	    	    	   	  HAL_Delay(300);
-	   	    	    fillRect(0, 10, 480, 10, ILI9488_BLUE);
-	   	   	  HAL_Delay(300);
-	   	    	    fillRect(0, 40, 480, 10, ILI9488_DARKGREEN);
-	   	   	  HAL_Delay(300);
-	   	    	    fillRect(0, 60, 480, 10, ILI9488_MAROON);
-	   	   	  HAL_Delay(300);
-	   	    	    fillRect(0, 80, 480, 10, ILI9488_PURPLE);
-	   	   	  HAL_Delay(300);
-	   	    	    fillRect(0, 100, 480, 10, ILI9488_OLIVE);
-	   	   	  HAL_Delay(300);
-	   	    	    fillRect(0, 120, 480, 10, ILI9488_LIGHTGREY);
-	   	   	  HAL_Delay(300);
-	   	    	    fillRect(0, 140, 480, 10, ILI9488_BLUE);
-	   	   	  HAL_Delay(300);
-	   	    	    fillRect(460, 220, 20, 100, ILI9488_BLUE);
-	   	   	  HAL_Delay(300);*/
+
 
 
 	  char buf[20];
 	  char buf1[20];
-	  	  //LCD_Font(25, 25, buf1, _Open_Sans_Bold_24  , 1, ILI9488_WHITE);
-	  	  //void LCD_Font(uint16_t x, uint16_t y, const char *text, const GFXfont *p_font,
-      //uint8_t size, uint32_t color24) {
-	  	  //void ILI9488_printText(char text[], int16_t x, int16_t y, uint16_t color, uint16_t bg, uint8_t size)
+	  char buf2[20];
+	  char buf3[20];
+
 	  	  ILI9488_printText(buf1, 25, 25, ILI9488_WHITE, ILI9488_WHITE, 1);
+	  	 ILI9488_printText(buf3, 150, 25, ILI9488_WHITE, ILI9488_WHITE, 1);
 	  	  touchX = getX();
 	  	  touchY = getY();
 	  	  sprintf(buf,"x=%3d y=%3d",touchX,touchY);
 	  	  sprintf(buf1,"x=%3d y=%3d",touchX,touchY);
-	  	  //LCD_Font(25, 25, buf, _Open_Sans_Bold_24  , 1, ILI9488_BLACK);
+	  	  sprintf(buf2,"count=%3d entered=%3d",count,entered[count]);
+	  	  sprintf(buf3,"count=%3d entered=%3d",count,entered[count]);
+
 	  	  ILI9488_printText(buf1, 25, 25, ILI9488_BLACK, ILI9488_BLACK, 1);
-	  	  fillRect(touchX, touchY,5,5, ILI9488_RED);
+	  	  ILI9488_printText(buf3, 150, 25, ILI9488_BLACK, ILI9488_BLACK, 1);
+	  	  /*
+	  	   * 75, 52
+			75, 67
+			97, 55
+			97, 67
+	  	   */
+
+	  	  if(count == 9)
+	  		  break;
+	  	  if(touchX >= 75 && touchX < 97 && touchY >= 52 && touchY < 67){
+
+	  		fillRect(100, 30,75,75, ILI9488_GREEN);
+	  		HAL_Delay(1000);
+	  		entered[count] = 1;
+	  		count++;
+
+	  		if(count > 9)
+	  			  			break;
+	  	  }
+	  	  /*else{
+	  		fillRect(100, 30,75,75, ILI9488_RED);
+	  		drawChar(135, 61, '1', ILI9488_BLACK,ILI9488_RED, 2);
+	  	  }*/
+
+
+	  	  /*
+	  	   * 2nd box:
+			97, 52
+			287, 52
+			97, 67
+			287, 67
+	  	   */
+	  	  if(touchX >= 100 && touchX < 287 && touchY >= 52 && touchY < 67){
+
+	  		fillRect(200, 30,75,75, ILI9488_GREEN);
+	  		HAL_Delay(1000);
+	  		entered[count] = 2;
+	  		count++;
+
+	  		if(count > 9)
+	  			  			break;
+	  	  }
+	  	  /*else
+	  		  fillRect(200, 30,75,75, ILI9488_RED);*/
+	  	  //fillRect(touchX, touchY,5,5, ILI9488_RED);
 	  	  //HAL_Delay(1000);
+
+	  	  /*3rd box:
+			299, 52
+			390, 52
+			299, 67
+			390, 167*/
+	  	if(touchX >= 299 && touchX < 372 && touchY >= 52 && touchY < 160){
+	  		fillRect(300, 30,75,75, ILI9488_GREEN);
+	  		HAL_Delay(1000);
+	  		entered[count] = 3;
+	  		count++;
+
+	  		if(count > 9)
+	  			  			break;
+	  	}
+	  	/*else
+	  		fillRect(300, 30,75,75, ILI9488_RED);*/
+
+	  	/*4th box:
+	  	 * 75, 163
+	  	 * 75, 219
+	  	 * 97, 163
+	  	 * 97, 219
+	  	 *
+	  	 *
+	  	 */
+	  	if(touchX >= 75 && touchX < 97 && touchY >= 163 && touchY < 219){
+	  		fillRect(100, 130,75,75, ILI9488_GREEN);
+	  		HAL_Delay(1000);
+	  		entered[count] = 4;
+	  			  		count++;
+	  		if(count > 9)
+	  			break;
+	  	}
+	  	/*else
+	  		fillRect(100, 130,75,75, ILI9488_RED);*/
+
+	  	/*5th box:
+	  		  	 * 97, 165
+	  		  	 * 262, 165
+	  		  	 * 97, 207
+	  		  	 * 262, 207
+	  		  	 */
+	  		  	if(touchX >= 100 && touchX < 262 && touchY >= 165 && touchY < 207){
+	  		  		fillRect(200, 130,75,75, ILI9488_GREEN);
+	  		  	HAL_Delay(1000);
+	  		  		entered[count] = 5;
+	  		  		  			  		count++;
+	  		  		  			  if(count > 9)
+	  		  		  			  	  			break;
+	  		  	}
+	  		  	/*else
+	  		  		fillRect(200, 130,75,75, ILI9488_RED);*/
+
+	  		  /*6th box:
+	  		  	  		  	 * 294, 166
+	  		  	  		  	 * 381, 167
+	  		  	  		  	 * 299, 207
+	  		  	  		  	 * 372, 207
+	  		  	  		  	 */
+	  		  if(touchX >= 299 && touchX < 372 && touchY >= 167 && touchY < 207){
+	  			fillRect(300, 130,75,75, ILI9488_GREEN);
+	  			HAL_Delay(1000);
+	  			entered[count] = 6;
+	  				  			  		count++;
+	  				  			  	if(count > 9)
+	  				  			  		  			break;
+	  		  }
+	  		  	  		  	/*else
+	  		  	  		  		fillRect(300, 130,75,75, ILI9488_RED);*/
+
+	  		/*7th box:
+	  			  		  	  		  	 * 75, 242
+	  			  		  	  		  	 * 97, 242
+	  			  		  	  		  	 * 75, 309
+	  			  		  	  		  	 * 97, 309
+	  			  		  	  		  	 */
+	  		if(touchX >= 75 && touchX < 97 && touchY >= 242 && touchY < 309){
+	  			fillRect(100, 230,75,75, ILI9488_GREEN);
+	  			HAL_Delay(1000);
+	  			entered[count] = 7;
+	  				  			  		count++;
+	  				  			  	if(count > 9)
+	  				  			  		  			break;
+	  		}
+
+	  			  		  	  		  	/*else
+	  			  		  	  		  		fillRect(100, 230,75,75, ILI9488_RED);*/
+
+	  		/*8th box:
+	  			  			  		  	  		  	 * 97, 242
+	  			  			  		  	  		  	 * 262, 242
+	  			  			  		  	  		  	 * 97, 309
+	  			  			  		  	  		  	 * 287, 306
+	  			  			  		  	  		  	 */
+	  		if(touchX >= 100 && touchX < 280 && touchY >= 242 && touchY < 309){
+	  			fillRect(200, 230,75,75, ILI9488_GREEN);
+	  			HAL_Delay(1000);
+	  			entered[count] = 8;
+	  				  			  		count++;
+	  				  			  	if(count > 9)
+	  				  			  		  			break;
+	  		}
+
+	  			  			  		  	  		  	/*else
+	  			  			  		  	  		  		fillRect(200, 230,75,75, ILI9488_RED);*/
+
+	  		/*9th box:
+	  		 * 299, 242
+	  		 * 381, 242
+	  		 * 299, 309
+	  		 * 372, 309
+	  		 */
+	  		if(touchX >= 299 && touchX < 372 && touchY >= 242 && touchY < 309){
+	  			fillRect(300, 230,75,75, ILI9488_GREEN);
+	  			HAL_Delay(1000);
+	  			entered[count] = 9;
+	  				  			  		count++;
+	  				  			  	if(count > 9)
+	  				  			  		  			break;
+	  		}
+
+	  			  			  			  		  	  		  	/*else
+	  			  			  			  		  	  		  		fillRect(300, 230,75,75, ILI9488_RED);*/
+
+
+
+	  		//HAL_Delay(1000);
 
 
 

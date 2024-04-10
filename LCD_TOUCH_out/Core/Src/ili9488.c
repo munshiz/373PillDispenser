@@ -621,6 +621,20 @@ void drawPixel(int16_t x, int16_t y, uint16_t color)
 
 }
 
+void drawPixelSize(int16_t x, int16_t y, uint16_t color, uint16_t size)
+{
+	if ((x < 0) || (x >= width) || (y < 0) || (y >= height))
+		return;
+
+	setAddrWindow(x, y, x + size, y + size);
+	HAL_GPIO_WritePin(tftDC_GPIO, tftDC_PIN, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(tftCS_GPIO, tftCS_PIN, GPIO_PIN_RESET);
+
+	write16BitColor(color);
+	HAL_GPIO_WritePin(tftCS_GPIO, tftCS_PIN, GPIO_PIN_SET);
+
+}
+
 void drawFastVLine(int16_t x, int16_t y, int16_t h, uint16_t color)
 {
 
@@ -854,6 +868,7 @@ void drawChar(int16_t x, int16_t y, unsigned char c, uint16_t color, uint16_t bg
         	drawPixel(x+i, y+j, color);
         else {  // big size
         	fillRect(x+(i*size), y+(j*size), size + x+(i*size), size+1 + y+(j*size), color);
+        	//fillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color)
         }
       } else if (bg != color) {
         if (size == 1) // default size
@@ -866,6 +881,58 @@ void drawChar(int16_t x, int16_t y, unsigned char c, uint16_t color, uint16_t bg
     }
   }
 }
+
+
+void drawCharTest(int16_t x, int16_t y, unsigned char c, uint16_t color, uint16_t bg, uint8_t size)
+{
+	if(rotationNum == 1 || rotationNum ==3)
+	{
+		if((x >= ILI9488_TFTWIDTH)            || // Clip right
+     (y >= ILI9488_TFTHEIGHT)           || // Clip bottom
+     ((x + 6 * size - 1) < 0) || // Clip left
+     ((y + 8 * size - 1) < 0))   // Clip top
+    return;
+	}
+	else
+	{
+		if((y >= ILI9488_TFTWIDTH)            || // Clip right
+     (x >= ILI9488_TFTHEIGHT)           || // Clip bottom
+     ((y + 6 * size - 1) < 0) || // Clip left
+     ((x + 8 * size - 1) < 0))   // Clip top
+    return;
+	}
+
+
+  if(!_cp437 && (c >= 176)) c++; // Handle 'classic' charset behavior
+
+  for (int8_t i=0; i<6; i++ ) {
+    uint8_t line;
+    if (i == 5)
+      line = 0x0;
+    else
+      line = pgm_read_byte(font1+(c*5)+i);
+    for (int8_t j = 0; j<8; j++) {
+      if (line & 0x1) {
+        if (size == 1) // default size
+        	drawPixel(x+i, y+j, color);
+        else {  // big size
+        	fillRect(x+(i*size), y+(j*size), (size + x+(i*size))/10, (size+1 + y+(j*size))/10, color);
+        	//fillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color)
+        }
+
+        drawPixelSize(x + i, y + i, color, size);
+      } else if (bg != color) {
+        if (size == 1) // default size
+        	drawPixel(x+i, y+j, bg);
+        else {  // big size
+        	fillRect(x+(i*size), y+(j*size), (size + x+(i*size))/10, (size+1 + y+(j*size))/10, bg);
+        }
+      }
+      line >>= 1;
+    }
+  }
+}
+
 void ILI9488_printText(char text[], int16_t x, int16_t y, uint16_t color, uint16_t bg, uint8_t size)
 {
 	int16_t offset;
