@@ -259,7 +259,7 @@ fillScreen(ILI9488_WHITE);
 
    //the keys:
 
-   fillRect(100, 30,75,75, ILI9488_RED);
+   /*fillRect(100, 30,75,75, ILI9488_RED);
    drawCharTest(130, 55, '1', ILI9488_BLACK,ILI9488_RED, 3);
    fillRect(200, 30,75,75, ILI9488_RED);
    drawCharTest(230, 55, '2', ILI9488_BLACK,ILI9488_RED, 3);
@@ -276,33 +276,36 @@ fillScreen(ILI9488_WHITE);
    fillRect(200, 230,75,75, ILI9488_RED);
    drawCharTest(230, 250, '8', ILI9488_BLACK,ILI9488_RED, 3);
    fillRect(300, 230,75,75, ILI9488_RED);
-   drawCharTest(319, 250, '9', ILI9488_BLACK,ILI9488_RED, 3);
+   drawCharTest(319, 250, '9', ILI9488_BLACK,ILI9488_RED, 3);*/
    //drawChar(135, 61, '1', ILI9488_BLACK,ILI9488_RED, 1);
 
 
    uint16_t count = 0;
    uint16_t entered[10];
+   char greetings[] = "In the quiet woods, under a starlit sky, whispers of ancient secrets echoed through time, captivating every soul.";
+   ILI9488_printTextTest(greetings, 25, 25, ILI9488_BLACK, ILI9488_WHITE, 3);
   while (1)
   {
+	  //ILI9488_printTextTest(greetings, 25, 25, ILI9488_BLACK, ILI9488_RED, 3);
 
 
 
 	  char buf[20];
 	  char buf1[20];
-	  char buf2[20];
-	  char buf3[20];
+	  //char buf2[20];
+	  //char buf3[20];
 
-	  	  ILI9488_printText(buf1, 25, 25, ILI9488_WHITE, ILI9488_WHITE, 1);
-	  	 ILI9488_printText(buf3, 150, 25, ILI9488_WHITE, ILI9488_WHITE, 1);
+	  	  //ILI9488_printTextTest(buf1, 250 , 25, ILI9488_BLACK, ILI9488_WHITE, 2);
+	  	 //ILI9488_printText(buf3, 150, 25, ILI9488_WHITE, ILI9488_WHITE, 1);
 	  	  touchX = getX();
 	  	  touchY = getY();
 	  	  sprintf(buf,"x=%3d y=%3d",touchX,touchY);
 	  	  sprintf(buf1,"x=%3d y=%3d",touchX,touchY);
-	  	  sprintf(buf2,"count=%3d entered=%3d",count,entered[count]);
-	  	  sprintf(buf3,"count=%3d entered=%3d",count,entered[count]);
+	  	  //sprintf(buf2,"count=%3d entered=%3d",count,entered[count]);
+	  	  //sprintf(buf3,"count=%3d entered=%3d",count,entered[count]);
 
-	  	  ILI9488_printText(buf1, 25, 25, ILI9488_BLACK, ILI9488_BLACK, 1);
-	  	  ILI9488_printText(buf3, 150, 25, ILI9488_BLACK, ILI9488_BLACK, 1);
+	  	  //ILI9488_printTextTest(buf1, 250, 25, ILI9488_BLACK,  ILI9488_WHITE, 2);
+	  	  //ILI9488_printText(buf3, 150, 25, ILI9488_BLACK, ILI9488_BLACK, 1);
 	  	  /*
 	  	   * 75, 52
 			75, 67
@@ -310,18 +313,18 @@ fillScreen(ILI9488_WHITE);
 			97, 67
 	  	   */
 
-	  	  if(count == 9)
-	  		  break;
-	  	  if(touchX >= 75 && touchX < 97 && touchY >= 52 && touchY < 67){
+	  	  //if(count == 9)
+	  		  //break;
+	  	  //if(touchX >= 75 && touchX < 97 && touchY >= 52 && touchY < 67){
 
-	  		fillRect(100, 30,75,75, ILI9488_GREEN);
-	  		HAL_Delay(1000);
-	  		entered[count] = 1;
-	  		count++;
+	  		//fillRect(100, 30,75,75, ILI9488_GREEN);
+	  		//HAL_Delay(1000);
+	  		//entered[count] = 1;
+	  		//count++;
 
-	  		if(count > 9)
-	  			  			break;
-	  	  }
+	  		//if(count > 9)
+	  		//	  			break;
+	  	  //}
 	  	  /*else{
 	  		fillRect(100, 30,75,75, ILI9488_RED);
 	  		drawChar(135, 61, '1', ILI9488_BLACK,ILI9488_RED, 2);
@@ -335,16 +338,16 @@ fillScreen(ILI9488_WHITE);
 			97, 67
 			287, 67
 	  	   */
-	  	  if(touchX >= 100 && touchX < 287 && touchY >= 52 && touchY < 67){
+	  	  //if(touchX >= 100 && touchX < 287 && touchY >= 52 && touchY < 67){
 
-	  		fillRect(200, 30,75,75, ILI9488_GREEN);
-	  		HAL_Delay(1000);
-	  		entered[count] = 2;
-	  		count++;
+	  		//fillRect(200, 30,75,75, ILI9488_GREEN);
+	  		//HAL_Delay(1000);
+	  		//entered[count] = 2;
+	  		//count++;
 
-	  		if(count > 9)
-	  			  			break;
-	  	  }
+	  		//if(count > 9)
+	  			  			//break;
+	  	  //}
 	  	  /*else
 	  		  fillRect(200, 30,75,75, ILI9488_RED);*/
 	  	  //fillRect(touchX, touchY,5,5, ILI9488_RED);
@@ -355,15 +358,15 @@ fillScreen(ILI9488_WHITE);
 			390, 52
 			299, 67
 			390, 167*/
-	  	if(touchX >= 299 && touchX < 372 && touchY >= 52 && touchY < 160){
-	  		fillRect(300, 30,75,75, ILI9488_GREEN);
-	  		HAL_Delay(1000);
-	  		entered[count] = 3;
-	  		count++;
+	  	//if(touchX >= 299 && touchX < 372 && touchY >= 52 && touchY < 160){
+	  	//	fillRect(300, 30,75,75, ILI9488_GREEN);
+	  	//	HAL_Delay(1000);
+	  	//	entered[count] = 3;
+	  		//count++;
 
-	  		if(count > 9)
-	  			  			break;
-	  	}
+	  		//if(count > 9)
+	  		//	  			break;
+	  	//}
 	  	/*else
 	  		fillRect(300, 30,75,75, ILI9488_RED);*/
 
@@ -375,14 +378,14 @@ fillScreen(ILI9488_WHITE);
 	  	 *
 	  	 *
 	  	 */
-	  	if(touchX >= 75 && touchX < 97 && touchY >= 163 && touchY < 219){
-	  		fillRect(100, 130,75,75, ILI9488_GREEN);
-	  		HAL_Delay(1000);
-	  		entered[count] = 4;
-	  			  		count++;
-	  		if(count > 9)
-	  			break;
-	  	}
+	  	//if(touchX >= 75 && touchX < 97 && touchY >= 163 && touchY < 219){
+	  		//fillRect(100, 130,75,75, ILI9488_GREEN);
+	  		//HAL_Delay(1000);
+	  		//entered[count] = 4;
+	  		//	  		count++;
+	  		//if(count > 9)
+	  			//break;
+	  	//}
 	  	/*else
 	  		fillRect(100, 130,75,75, ILI9488_RED);*/
 
@@ -392,14 +395,14 @@ fillScreen(ILI9488_WHITE);
 	  		  	 * 97, 207
 	  		  	 * 262, 207
 	  		  	 */
-	  		  	if(touchX >= 100 && touchX < 262 && touchY >= 165 && touchY < 207){
-	  		  		fillRect(200, 130,75,75, ILI9488_GREEN);
-	  		  	HAL_Delay(1000);
-	  		  		entered[count] = 5;
-	  		  		  			  		count++;
-	  		  		  			  if(count > 9)
-	  		  		  			  	  			break;
-	  		  	}
+	  		  	//if(touchX >= 100 && touchX < 262 && touchY >= 165 && touchY < 207){
+	  		  	//	fillRect(200, 130,75,75, ILI9488_GREEN);
+	  		  	//HAL_Delay(1000);
+	  		  	//	entered[count] = 5;
+	  		  	//	  			  		count++;
+	  		  	//	  			  if(count > 9)
+	  		  	//	  			  	  			break;
+	  		  	//}
 	  		  	/*else
 	  		  		fillRect(200, 130,75,75, ILI9488_RED);*/
 
@@ -409,14 +412,14 @@ fillScreen(ILI9488_WHITE);
 	  		  	  		  	 * 299, 207
 	  		  	  		  	 * 372, 207
 	  		  	  		  	 */
-	  		  if(touchX >= 299 && touchX < 372 && touchY >= 167 && touchY < 207){
-	  			fillRect(300, 130,75,75, ILI9488_GREEN);
-	  			HAL_Delay(1000);
-	  			entered[count] = 6;
-	  				  			  		count++;
-	  				  			  	if(count > 9)
-	  				  			  		  			break;
-	  		  }
+	  		  //if(touchX >= 299 && touchX < 372 && touchY >= 167 && touchY < 207){
+	  			//fillRect(300, 130,75,75, ILI9488_GREEN);
+	  			//HAL_Delay(1000);
+	  			//entered[count] = 6;
+	  			//	  			  		count++;
+	  			//	  			  	if(count > 9)
+	  			//	  			  		  			break;
+	  		  //}
 	  		  	  		  	/*else
 	  		  	  		  		fillRect(300, 130,75,75, ILI9488_RED);*/
 
@@ -426,14 +429,14 @@ fillScreen(ILI9488_WHITE);
 	  			  		  	  		  	 * 75, 309
 	  			  		  	  		  	 * 97, 309
 	  			  		  	  		  	 */
-	  		if(touchX >= 75 && touchX < 97 && touchY >= 242 && touchY < 309){
-	  			fillRect(100, 230,75,75, ILI9488_GREEN);
-	  			HAL_Delay(1000);
-	  			entered[count] = 7;
-	  				  			  		count++;
-	  				  			  	if(count > 9)
-	  				  			  		  			break;
-	  		}
+	  		//if(touchX >= 75 && touchX < 97 && touchY >= 242 && touchY < 309){
+	  		//	fillRect(100, 230,75,75, ILI9488_GREEN);
+	  		//	HAL_Delay(1000);
+	  		//	entered[count] = 7;
+	  		//		  			  		count++;
+	  		//		  			  	if(count > 9)
+	  		//		  			  		  			break;
+	  		//}
 
 	  			  		  	  		  	/*else
 	  			  		  	  		  		fillRect(100, 230,75,75, ILI9488_RED);*/
@@ -444,14 +447,14 @@ fillScreen(ILI9488_WHITE);
 	  			  			  		  	  		  	 * 97, 309
 	  			  			  		  	  		  	 * 287, 306
 	  			  			  		  	  		  	 */
-	  		if(touchX >= 100 && touchX < 280 && touchY >= 242 && touchY < 309){
-	  			fillRect(200, 230,75,75, ILI9488_GREEN);
-	  			HAL_Delay(1000);
-	  			entered[count] = 8;
-	  				  			  		count++;
-	  				  			  	if(count > 9)
-	  				  			  		  			break;
-	  		}
+	  		//if(touchX >= 100 && touchX < 280 && touchY >= 242 && touchY < 309){
+	  		//	fillRect(200, 230,75,75, ILI9488_GREEN);
+	  		//	HAL_Delay(1000);
+	  		//	entered[count] = 8;
+	  		//		  			  		count++;
+	  		//		  			  	if(count > 9)
+	  		//		  			  		  			break;
+	  		//}
 
 	  			  			  		  	  		  	/*else
 	  			  			  		  	  		  		fillRect(200, 230,75,75, ILI9488_RED);*/
@@ -462,14 +465,14 @@ fillScreen(ILI9488_WHITE);
 	  		 * 299, 309
 	  		 * 372, 309
 	  		 */
-	  		if(touchX >= 299 && touchX < 372 && touchY >= 242 && touchY < 309){
-	  			fillRect(300, 230,75,75, ILI9488_GREEN);
-	  			HAL_Delay(1000);
-	  			entered[count] = 9;
-	  				  			  		count++;
-	  				  			  	if(count > 9)
-	  				  			  		  			break;
-	  		}
+	  		//if(touchX >= 299 && touchX < 372 && touchY >= 242 && touchY < 309){
+	  		//	fillRect(300, 230,75,75, ILI9488_GREEN);
+	  		//	HAL_Delay(1000);
+	  		//	entered[count] = 9;
+	  		//		  			  		count++;
+	  		//		  			  	if(count > 9)
+	  		//		  			  		  			break;
+	  		//}
 
 	  			  			  			  		  	  		  	/*else
 	  			  			  			  		  	  		  		fillRect(300, 230,75,75, ILI9488_RED);*/

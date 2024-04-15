@@ -23,6 +23,7 @@
 ../Core/Src/ili9488.c:831:10:color565	16	static
 ../Core/Src/ili9488.c:837:6:drawChar	40	static
 ../Core/Src/ili9488.c:886:6:drawCharTest	40	static
-../Core/Src/ili9488.c:936:6:ILI9488_printText	48	static
-../Core/Src/ili9488.c:946:6:testLines	56	static
-../Core/Src/ili9488.c:998:6:write16BitColor	24	static
+../Core/Src/ili9488.c:937:6:ILI9488_printText	48	static
+../Core/Src/ili9488.c:949:6:ILI9488_printTextTest	48	static
+../Core/Src/ili9488.c:964:6:testLines	56	static
+../Core/Src/ili9488.c:1016:6:write16BitColor	24	static

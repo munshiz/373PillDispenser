@@ -1,6 +1,6 @@
-../Core/Src/main.c:107:5:main	128	static
-../Core/Src/main.c:495:6:SystemClock_Config	96	static
-../Core/Src/main.c:546:13:MX_SPI2_Init	8	static
-../Core/Src/main.c:586:13:MX_SPI3_Init	8	static
-../Core/Src/main.c:626:13:MX_GPIO_Init	40	static
-../Core/Src/main.c:668:6:Error_Handler	4	static,ignoring_inline_asm
+../Core/Src/main.c:107:5:main	200	static
+../Core/Src/main.c:498:6:SystemClock_Config	96	static
+../Core/Src/main.c:549:13:MX_SPI2_Init	8	static
+../Core/Src/main.c:589:13:MX_SPI3_Init	8	static
+../Core/Src/main.c:629:13:MX_GPIO_Init	40	static
+../Core/Src/main.c:671:6:Error_Handler	4	static,ignoring_inline_asm
