@@ -6,6 +6,7 @@
  */
 #include "Screens.h"
 #include "ds1307.h"
+#include "Pills.h"
 
 void authenticate(void (*nextScreen)()){
 	   fillScreen(ILI9488_WHITE);
@@ -242,6 +243,13 @@ void LockScreen(){
 	uint8_t second = DS1307_GetSecond();
 	char buffer[100] = { 0 };
 	char ampm[4] = "AM";
+	char formattedMinute[4];
+	if (minute < 10){
+		sprintf(formattedMinute, "0%i", minute);
+	}
+	else{
+		sprintf(formattedMinute, "%i", minute);
+	}
  	//convert to 12hr time
 	if (hour == 0){
 		hour = 12;
@@ -251,9 +259,51 @@ void LockScreen(){
 		sprintf(ampm, "%s", "PM");
 	}
 	/* May show warning below. Ignore and proceed. */
-	sprintf(buffer, "%s, %s %i %i, %i:%i:%i %s",
-	DAYS_OF_WEEK[dow], MONTHS_OF_YEAR[month - 1], date, year, hour, minute, second, ampm);
-	 ILI9488_printText(buffer, 10, 10, ILI9488_BLACK, ILI9488_WHITE, 1);
-	 HAL_Delay(50);
+	sprintf(buffer, "Now: %s, %s %i %i, %i:%s:%i %s",
+	DAYS_OF_WEEK[dow], MONTHS_OF_YEAR[month - 1], date, year, hour, formattedMinute, second, ampm);
+	ILI9488_printText(buffer, 10, 10, ILI9488_BLACK, ILI9488_WHITE, 2);
+	HAL_Delay(50);
 
+	update_next_pill_idx(DS1307_GetDayOfWeek(), DS1307_GetHour(), DS1307_GetMinute());
+
+	 uint8_t pil = 0;
+	 for (pil = 0; pil < 3; pil++){
+
+		 //12 hour time for every pill
+		 pillEntry temp = getPillInfo(pil);
+		 uint8_t tempHour = temp.hour;
+		 char tempampm[4] = "AM";
+		 char pillTime [50];
+		 char pillFormatMinute [5] = " ";
+
+
+		 if (temp.min < 10){
+				sprintf(pillFormatMinute, "0%i", temp.min);
+			}
+
+		 else{
+				sprintf(pillFormatMinute, "%i", temp.min);
+			}
+		 if (tempHour == 0){
+			tempHour = 12;
+		 }
+		 else if (tempHour > 12){
+			tempHour = tempHour - 12;
+			sprintf(tempampm, "%s", "PM");
+		 }
+
+		sprintf(pillTime, "Pill Due at %s, %s %i @ %i:%s %s", DAYS_OF_WEEK[temp.dayofWeek], MONTHS_OF_YEAR[month - 1], date + (temp.dayofWeek - dow),tempHour,  pillFormatMinute, tempampm);
+		//overdue pills.
+		if (pil < get_next_pill_idx()){
+			ILI9488_printText(temp.name, 10, (pil + 1) * 50, ILI9488_RED, ILI9488_WHITE, 1);
+			ILI9488_printText(pillTime, 10, (pil + 1)*50 + 10, ILI9488_RED, ILI9488_WHITE, 1);
+		}
+		else {
+			ILI9488_printText(temp.name, 10, (pil + 1) * 50, ILI9488_BLACK, ILI9488_WHITE, 1);
+			ILI9488_printText(pillTime, 10, (pil + 1) * 50 + 10, ILI9488_BLACK, ILI9488_WHITE, 1);
+		}
+	 }
+	 HAL_Delay(1000);
 }
+
+

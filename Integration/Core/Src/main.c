@@ -123,7 +123,7 @@ int main(void)
 	DS1307_SetDate(14);
 	DS1307_SetMonth(4);
 	DS1307_SetYear(2024);
-	DS1307_SetDayOfWeek(0);
+	DS1307_SetDayOfWeek(2);
 	DS1307_SetHour(22);
 	DS1307_SetMinute(13);
 	DS1307_SetSecond(30);
@@ -131,18 +131,18 @@ int main(void)
 	HAL_Delay(1000);
 
 	//Monday at 11:00.
-	addNewEntry(0, "WEEWOO3", 1, 11, 00);
+	addNewEntry(0, "WEEWOO2", 1, 11, 00);
 	//Friday at 5:30.
-	addNewEntry(0, "WEEWOO", 6, 5, 30);
+	addNewEntry(0, "WEEWOO3", 6, 5, 30);
 	//Sunday at 12:00.
-	addNewEntry(0, "WEEWOO2", 0, 12, 00);
+	addNewEntry(0, "WEEWOO1", 0, 12, 00);
 
-	pillsinit();
+
   while (1)
   {
-	  ILI9488_printText(getPillInfo(0).name, 10, 10, ILI9488_BLACK, ILI9488_WHITE, 1);
-	  ILI9488_printText(getPillInfo(1).name, 10, 100, ILI9488_BLACK, ILI9488_WHITE, 1);
-	  ILI9488_printText(getPillInfo(2).name, 10, 200, ILI9488_BLACK, ILI9488_WHITE, 1);
+
+	 LockScreen();
+
 	  /*authenticate(&Dispense);
 
 

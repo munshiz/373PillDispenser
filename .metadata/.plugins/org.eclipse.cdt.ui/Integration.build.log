@@ -1,24 +1,38 @@
-02:12:53 **** Incremental Build of configuration Debug for project Integration ****
-make -j12 all 
-arm-none-eabi-gcc "../Core/Src/Pills.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/Pills.d" -MT"Core/Src/Pills.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Pills.o"
-../Core/Src/Pills.c: In function 'compPillEntry':
-../Core/Src/Pills.c:48:1: warning: control reaches end of non-void function [-Wreturn-type]
-   48 | }
-      | ^
-arm-none-eabi-gcc -o "Integration.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\yakue\Documents\EECS373\373PillDispenser\Integration\STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="Integration.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+17:51:45 **** Incremental Build of configuration Debug for project Integration ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/Screens.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Screens.d" -MT"Core/Src/Screens.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Screens.o"
+In file included from ../Core/Inc/ili9488.h:15,
+                 from ../Core/Inc/Screens.h:11,
+                 from ../Core/Src/Screens.c:7:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+../Core/Src/Screens.c: In function 'authenticate':
+../Core/Src/Screens.c:15:12: warning: implicit declaration of function 'drawCharTest'; did you mean 'drawChar'? [-Wimplicit-function-declaration]
+   15 |            drawCharTest(130, 55, '1', ILI9488_WHITE,ILI9488_RED, 3);
+      |            ^~~~~~~~~~~~
+      |            drawChar
+../Core/Src/Screens.c: In function 'Dispense':
+../Core/Src/Screens.c:214:33: warning: initializer-string for array of 'char' is too long
+  214 |         char success_msg [10] = "Dispensing...";
+      |                                 ^~~~~~~~~~~~~~~
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h: At top level:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+arm-none-eabi-gcc -o "Integration.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/zawad/Documents/EECS373/project/Integration/STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="Integration.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.0.100.202403111906/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: warning: Integration.elf has a LOAD segment with RWX permissions
 Finished building target: Integration.elf
  
-arm-none-eabi-size   Integration.elf 
-arm-none-eabi-objdump -h -S  Integration.elf  > "Integration.list"
-arm-none-eabi-objcopy  -O binary  Integration.elf  "Integration.bin"
+arm-none-eabi-size  Integration.elf 
+arm-none-eabi-objdump -h -S Integration.elf  > "Integration.list"
    text	   data	    bss	    dec	    hex	filename
-  25584	     24	   2784	  28392	   6ee8	Integration.elf
+  30072	    104	   3120	  33296	   8210	Integration.elf
 Finished building: default.size.stdout
- 
-Finished building: Integration.bin
  
 Finished building: Integration.list
  
 
-02:12:53 Build Finished. 0 errors, 1 warnings. (took 606ms)
+17:51:46 Build Finished. 0 errors, 5 warnings. (took 971ms)
 

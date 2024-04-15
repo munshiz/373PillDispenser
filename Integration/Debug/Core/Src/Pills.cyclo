@@ -1,4 +1,8 @@
-../Core/Src/Pills.c:5:6:pillsinit	1
-../Core/Src/Pills.c:8:6:addNewEntry	1
-../Core/Src/Pills.c:16:6:sortEntries	4
-../Core/Src/Pills.c:37:9:compPillEntry	4
+../Core/Src/Pills.c:8:6:pillsinit	1
+../Core/Src/Pills.c:11:6:addNewEntry	1
+../Core/Src/Pills.c:20:6:sortEntries	4
+../Core/Src/Pills.c:42:9:compPillEntry	4
+../Core/Src/Pills.c:59:9:update_next_pill_idx	8
+../Core/Src/Pills.c:85:9:get_next_pill_idx	1
+../Core/Src/Pills.c:92:9:updatelastTakenPill	2
+../Core/Src/Pills.c:104:11:getPillInfo	1

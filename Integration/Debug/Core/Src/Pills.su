@@ -1,5 +1,8 @@
-Pills.c:5:6:pillsinit	4	static
-Pills.c:8:6:addNewEntry	40	static
-Pills.c:16:6:sortEntries	40	static
-Pills.c:38:9:compPillEntry	24	static
-Pills.c:50:11:getPillInfo	16	static
+../Core/Src/Pills.c:8:6:pillsinit	4	static
+../Core/Src/Pills.c:11:6:addNewEntry	40	static
+../Core/Src/Pills.c:20:6:sortEntries	40	static
+../Core/Src/Pills.c:42:9:compPillEntry	24	static
+../Core/Src/Pills.c:59:9:update_next_pill_idx	24	static
+../Core/Src/Pills.c:85:9:get_next_pill_idx	4	static
+../Core/Src/Pills.c:92:9:updatelastTakenPill	8	static
+../Core/Src/Pills.c:104:11:getPillInfo	16	static

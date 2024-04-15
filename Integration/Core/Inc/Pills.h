@@ -8,6 +8,7 @@
 #ifndef INC_PILLS_H_
 #define INC_PILLS_H_
 
+#include "ds1307.h"
 #include <stdint.h>
 
 static uint8_t numPills;
@@ -25,5 +26,8 @@ void addNewEntry(uint8_t dispenserNum, char * name, uint8_t dayofWeek, uint8_t h
 void sortEntries();
 uint8_t compPillEntry(pillEntry lhs, pillEntry rhs);
 pillEntry getPillInfo(uint8_t idx);
+uint8_t get_next_pill_idx();
+uint8_t updatelastTakenPill();
+uint8_t update_next_pill_idx(uint8_t dayofweek, uint8_t hour, uint8_t min);
 
 #endif /* INC_PILLS_H_ */

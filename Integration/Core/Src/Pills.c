@@ -1,6 +1,9 @@
 #include "Pills.h"
 
 static pillEntry pillList [50];
+static uint8_t next_time_pill_idx = 0;
+static uint8_t last_taken_pill_idx = 0;
+
 
 void pillsinit(){
 	numPills = 0;
@@ -11,6 +14,7 @@ void addNewEntry(uint8_t dispenserNum, char * name, uint8_t dayofWeek, uint8_t h
 	pillList[numPills] = wew;
 	numPills++;
 	sortEntries();
+	//update_next_pill_idx(DS1307_GetDayOfWeek, DS1307_GetHour, DS1307_GetMinute);
 }
 
 void sortEntries(){
@@ -36,17 +40,69 @@ void sortEntries(){
 
 //returns 1 if lhs is less than rhs
 uint8_t compPillEntry(pillEntry lhs, pillEntry rhs){
-	if (lhs.dayofWeek < rhs.dayofWeek){
-		return 1;
+
+	if (!(lhs.dayofWeek == rhs.dayofWeek)){
+		return lhs.dayofWeek < rhs.dayofWeek;
 	}
-	if (lhs.hour < rhs.hour){
-		return 1;
+
+	if (!(lhs.hour == rhs.hour)){
+		return lhs.hour < rhs.hour;
 	}
-	if (lhs.min < rhs.min){
-		return 1;
+
+	if (!(lhs.min == rhs.min)){
+		return lhs.min < rhs.min;
 	}
+
+	return 0;
+}
+
+uint8_t update_next_pill_idx(uint8_t dayofweek, uint8_t hour, uint8_t min){
+	uint8_t i = 0;
+	//find closest next pill to the current time. Actual search algorithms be damned.
+	for (i = 0; i < numPills; i++){
+		if (!(dayofweek == pillList[i].dayofWeek)){
+			if (dayofweek < pillList[i].dayofWeek){
+				next_time_pill_idx = i;
+			}
+
+		}
+
+		if (!(hour == pillList[i].hour)){
+			if (dayofweek < pillList[i].dayofWeek){
+				next_time_pill_idx = i;
+			}
+		}
+
+		if (!(min == pillList[i].min)){
+			if (dayofweek < pillList[i].dayofWeek){
+				next_time_pill_idx = i;
+			}
+		}
+	}
+
+}
+
+uint8_t get_next_pill_idx(){
+	return next_time_pill_idx;
+}
+
+
+
+//call after pills have been dispensed up to current time
+uint8_t updatelastTakenPill(){
+	update_next_pill_idx(DS1307_GetDayOfWeek, DS1307_GetHour, DS1307_GetMinute);
+	//rolling over to the next week.
+	if (next_time_pill_idx == 0){
+		last_taken_pill_idx = numPills - 1;
+	}
+	else {
+		last_taken_pill_idx = next_time_pill_idx - 1;
+	}
+
 }
 
 pillEntry getPillInfo(uint8_t idx){
 	return pillList[idx];
 }
+
+
