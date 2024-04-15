@@ -1,0 +1,26 @@
+#include "Pills.h"
+
+pillEntry pillList [50];
+
+void pillsinit(){
+	numPills = 0;
+}
+void addNewEntry(uint8_t dispenserNum, char * name, uint8_t dayofWeek, uint8_t hour, uint8_t min){
+	//uint8_t ID; uint8_t dispenserNum; char * name; uint8_t dayofWeek; uint8_t hour; uint8_t min; uint8_t taken;
+	pillEntry wew = {numPills, dispenserNum, name, daysofWeek, hour, min, 1};
+	pillList[numPills + 1] = wew;
+	numPills++;
+	sortEntries();
+}
+
+void sortEntries(){
+	uint8_t i = 0;
+	for (i = 0; i < numPills; i++){
+
+	}
+}
+
+//returns 1 if lhs is less than rhs
+uint8_t compPillEntry(pillEntry lhs, pillEntry rhs){
+	return lhs.dayofWeek < rhs.dayofWeek || lhs.hour < rhs.hour || lhs.minute < rhs.minute;
+}

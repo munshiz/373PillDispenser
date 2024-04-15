@@ -1,0 +1,20 @@
+/*
+ * Screens.h
+ *
+ *  Created on: Apr 13, 2024
+ *      Author: zawad
+ */
+
+#ifndef INC_SCREENS_H_
+#define INC_SCREENS_H_
+
+typedef enum {
+	DISPENSE_PILL = 0;
+	LOAD_PILL = 1;
+	CHANGE_PASSCODE = 2;
+	CHANGE_FINGERPRINT = 3;
+} context;
+
+void passcodeScreen(context nextScreen);
+
+#endif /* INC_SCREENS_H_ */

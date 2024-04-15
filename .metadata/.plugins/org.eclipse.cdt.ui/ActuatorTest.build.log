@@ -1,0 +1,10 @@
+20:13:32 **** Incremental Build of configuration Debug for project ActuatorTest ****
+make -j7 all 
+arm-none-eabi-size  ActuatorTest.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6800	     12	   1572	   8384	   20c0	ActuatorTest.elf
+Finished building: default.size.stdout
+ 
+
+20:13:33 Build Finished. 0 errors, 0 warnings. (took 280ms)
+

@@ -1,0 +1,18 @@
+/*
+ * Screens.h
+ *
+ *  Created on: Apr 13, 2024
+ *      Author: zawad
+ */
+
+#ifndef INC_SCREENS_H_
+#define INC_SCREENS_H_
+
+#include "ili9488.h"
+#include "xpt2046.h"
+
+void authenticate(void (*nextScreen)());
+void Dispense();
+void LockScreen();
+
+#endif /* INC_SCREENS_H_ */

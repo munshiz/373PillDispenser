@@ -1,0 +1,4 @@
+../Core/Src/Pills.c:5:6:pillsinit	1
+../Core/Src/Pills.c:8:6:addNewEntry	1
+../Core/Src/Pills.c:16:6:sortEntries	4
+../Core/Src/Pills.c:37:9:compPillEntry	4

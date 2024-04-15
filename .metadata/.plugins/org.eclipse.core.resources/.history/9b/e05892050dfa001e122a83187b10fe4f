@@ -1,0 +1,15 @@
+/*
+ * Screens.h
+ *
+ *  Created on: Apr 13, 2024
+ *      Author: zawad
+ */
+
+#ifndef INC_SCREENS_H_
+#define INC_SCREENS_H_
+
+
+
+void authenticate(void (*nextScreen)());
+
+#endif /* INC_SCREENS_H_ */
