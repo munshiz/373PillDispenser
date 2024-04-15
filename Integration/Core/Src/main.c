@@ -127,25 +127,23 @@ int main(void)
 	DS1307_SetHour(22);
 	DS1307_SetMinute(13);
 	DS1307_SetSecond(30);
+
 	HAL_Delay(1000);
-	char name [10] = "WEEWOO";
-	char name2 [10] = "WEEWOO 2";
-	char name3 [10] = "WEEWOO 3";
+
 	//Monday at 11:00.
-	addNewEntry(0, name3, 0, 11, 00);
+	addNewEntry(0, "WEEWOO3", 1, 11, 00);
 	//Friday at 5:30.
-	addNewEntry(0, name, 0, 5, 30);
+	addNewEntry(0, "WEEWOO", 6, 5, 30);
 	//Sunday at 12:00.
-	addNewEntry(0, name2, 0, 12, 00);
-	static pillEntry pillList [50];
+	addNewEntry(0, "WEEWOO2", 0, 12, 00);
+
 	pillsinit();
   while (1)
   {
-
-	  ILI9488_printText(pillList[0].name, 10, 10, ILI9488_BLACK, ILI9488_WHITE, 1);
-	  ILI9488_printText(pillList[1].name, 10, 100, ILI9488_BLACK, ILI9488_WHITE, 1);
-	  ILI9488_printText(pillList[2].name, 10, 200, ILI9488_BLACK, ILI9488_WHITE, 1);
-	   //authenticate(&Dispense);
+	  ILI9488_printText(getPillInfo(0).name, 10, 10, ILI9488_BLACK, ILI9488_WHITE, 1);
+	  ILI9488_printText(getPillInfo(1).name, 10, 100, ILI9488_BLACK, ILI9488_WHITE, 1);
+	  ILI9488_printText(getPillInfo(2).name, 10, 200, ILI9488_BLACK, ILI9488_WHITE, 1);
+	  /*authenticate(&Dispense);
 
 
     /* USER CODE END WHILE */

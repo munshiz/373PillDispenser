@@ -1,7 +1,7 @@
-../Core/Src/xpt2046.c:8:21:remap	32	static
-../Core/Src/xpt2046.c:13:6:XPT2046_Init	8	static
-../Core/Src/xpt2046.c:22:10:getRaw	32	static
-../Core/Src/xpt2046.c:39:24:X	16	static
-../Core/Src/xpt2046.c:48:24:Y	16	static
-../Core/Src/xpt2046.c:57:10:getX	16	static
-../Core/Src/xpt2046.c:72:10:getY	16	static
+xpt2046.c:8:21:remap	32	static
+xpt2046.c:13:6:XPT2046_Init	8	static
+xpt2046.c:22:10:getRaw	32	static
+xpt2046.c:39:24:X	16	static
+xpt2046.c:48:24:Y	16	static
+xpt2046.c:57:10:getX	16	static
+xpt2046.c:72:10:getY	16	static

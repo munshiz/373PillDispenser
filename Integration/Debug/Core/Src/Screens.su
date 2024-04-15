@@ -1,3 +1,3 @@
-../Core/Src/Screens.c:10:6:authenticate	56	static
-../Core/Src/Screens.c:212:6:Dispense	32	static
-../Core/Src/Screens.c:231:6:LockScreen	248	static
+Screens.c:10:6:authenticate	56	static
+Screens.c:212:6:Dispense	32	static
+Screens.c:231:6:LockScreen	248	static

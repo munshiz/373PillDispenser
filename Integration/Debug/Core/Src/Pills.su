@@ -1,4 +1,5 @@
-../Core/Src/Pills.c:5:6:pillsinit	4	static
-../Core/Src/Pills.c:8:6:addNewEntry	40	static
-../Core/Src/Pills.c:16:6:sortEntries	40	static
-../Core/Src/Pills.c:37:9:compPillEntry	24	static
+Pills.c:5:6:pillsinit	4	static
+Pills.c:8:6:addNewEntry	40	static
+Pills.c:16:6:sortEntries	40	static
+Pills.c:38:9:compPillEntry	24	static
+Pills.c:50:11:getPillInfo	16	static

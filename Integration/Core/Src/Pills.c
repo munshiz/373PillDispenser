@@ -8,7 +8,7 @@ void pillsinit(){
 void addNewEntry(uint8_t dispenserNum, char * name, uint8_t dayofWeek, uint8_t hour, uint8_t min){
 	//uint8_t ID; uint8_t dispenserNum; char * name; uint8_t dayofWeek; uint8_t hour; uint8_t min; uint8_t taken;
 	pillEntry wew = {numPills, dispenserNum, name, dayofWeek, hour, min, 1};
-	pillList[numPills + 1] = wew;
+	pillList[numPills] = wew;
 	numPills++;
 	sortEntries();
 }
@@ -20,8 +20,9 @@ void sortEntries(){
 
 	//WOOOO SELECTION SORT MY BELOVED!!!!
 	for (i = 0; i < numPills; i++){
-		for (j = i; j < numPills; j++){
-			if (compPillEntry(pillList[minimum_idx], pillList[j])){
+		minimum_idx = i;
+		for (j = i + 1; j < numPills; j++){
+			if (compPillEntry(pillList[j], pillList[minimum_idx])){
 				minimum_idx = j;
 			}
 		}
@@ -29,11 +30,23 @@ void sortEntries(){
 		pillList[i] = pillList[minimum_idx];
 		pillList[minimum_idx] = temp;
 		pillList[i].ID = i;
-		minimum_idx = i + 1;
+
 	}
 }
 
 //returns 1 if lhs is less than rhs
 uint8_t compPillEntry(pillEntry lhs, pillEntry rhs){
-	return lhs.dayofWeek < rhs.dayofWeek || lhs.hour < rhs.hour || lhs.min < rhs.min;
+	if (lhs.dayofWeek < rhs.dayofWeek){
+		return 1;
+	}
+	if (lhs.hour < rhs.hour){
+		return 1;
+	}
+	if (lhs.min < rhs.min){
+		return 1;
+	}
+}
+
+pillEntry getPillInfo(uint8_t idx){
+	return pillList[idx];
 }

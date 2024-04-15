@@ -24,6 +24,6 @@ typedef struct {
 void addNewEntry(uint8_t dispenserNum, char * name, uint8_t dayofWeek, uint8_t hour, uint8_t min);
 void sortEntries();
 uint8_t compPillEntry(pillEntry lhs, pillEntry rhs);
-
+pillEntry getPillInfo(uint8_t idx);
 
 #endif /* INC_PILLS_H_ */
