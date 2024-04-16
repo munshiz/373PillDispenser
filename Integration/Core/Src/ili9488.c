@@ -905,6 +905,7 @@ void drawCharTest(int16_t x, int16_t y, unsigned char c, uint16_t color, uint16_
 
   if(!_cp437 && (c >= 176)) c++; // Handle 'classic' charset behavior
 
+  //6
   for (int8_t i=0; i<6; i++ ) {
     uint8_t line;
     if (i == 5)
@@ -943,6 +944,23 @@ void ILI9488_printText(char text[], int16_t x, int16_t y, uint16_t color, uint16
 		drawChar(x+(offset*i), y, text[i],color,bg,size);
 	}
 }
+
+
+void ILI9488_printTextTest(char text[], int16_t x, int16_t y, uint16_t color, uint16_t bg, uint8_t size)
+{
+	int16_t offset;
+	offset = size*6;
+
+	/*for(uint16_t i=0; i<strlen(text) && text[i]!=NULL; i++)
+	{
+		drawCharTest(x+(offset*i), y, text[i],color,bg,size);
+	}*/
+	for(uint16_t i=0; i<100 && text[i]!=NULL; i++)
+		{
+			drawCharTest(x+(offset*i), y, text[i],color,bg,size);
+		}
+}
+
 void testLines(uint8_t color)
 {
 

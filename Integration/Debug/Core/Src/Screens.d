@@ -32,8 +32,8 @@ Core/Src/Screens.o: ../Core/Src/Screens.c ../Core/Inc/Screens.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
  ../Core/Inc/main.h ../Core/Inc/xpt2046.h ../Core/Inc/Screens.h \
- ../Core/Inc/ds1307.h ../Core/Inc/Pills.h ../Core/Inc/ds1307.h \
- ../Core/Inc/Pills.h
+ ../Core/Inc/ds1307.h ../Core/Inc/Pills.h ../Core/Inc/xbee.h \
+ ../Core/Inc/ds1307.h ../Core/Inc/Pills.h
 ../Core/Inc/Screens.h:
 ../Core/Inc/ili9488.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
@@ -72,5 +72,6 @@ Core/Src/Screens.o: ../Core/Src/Screens.c ../Core/Inc/Screens.h \
 ../Core/Inc/Screens.h:
 ../Core/Inc/ds1307.h:
 ../Core/Inc/Pills.h:
+../Core/Inc/xbee.h:
 ../Core/Inc/ds1307.h:
 ../Core/Inc/Pills.h:

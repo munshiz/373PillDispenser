@@ -1,0 +1,73 @@
+/*
+ * xbee.c
+ *
+ *  Created on: Apr 14, 2024
+ *      Author: zawad
+ */
+
+#include "ds1307.h"
+#include "Pills.h"
+#include "main.h"
+
+
+/**XBEE COMMAND LIST**/
+/* ALL COMMANDS START WITH 1010 to start a transaction.
+ *
+ * GetHour: 0001
+ * GetMin: 0010
+ * GetSec: 0011
+ * Get DayOfWeek: 0100
+ * Get Year: 0101
+ * Get Month: 0110
+ * The following commands are constantly sending data until end (e.g all pill information) has been transferred.
+ * UPLOAD PILL INFORMATION: 0111:
+ *
+ * DOWNLOAD PILL INFORMATION: 0110
+ */
+
+
+UART_HandleTypeDef * xbee_uart;
+
+//Sets UART Handle for our UART Stuff.
+void xbee_init(UART_HandleTypeDef * uart_handle) {
+	xbee_uart = uart_handle;
+}
+
+//Initial Setup w/ server. Sets correct time, receives existing pill data and configuration information from server.
+void systemInit(){
+	 xbeeGetHour();
+	 xbeeGetMin();
+	 xbeeGetYear();
+	 xbeeGetDayOfWeek();
+	 xbeeGetMonth();
+	 xbeeGetSec();
+	 xbeeDownloadPills();
+}
+
+void xbeeGetHour(){
+	uint8_t * buffer;
+	&buffer = (0xA) << 4 | 0x01;
+	HAL_UART_Transmit(&huart2, tx_buff, 1, 1000);
+}
+
+void xbeeGetMin(){
+
+}
+void xbeeGetYear(){
+
+}
+void xbeeGetDayOfWeek(){
+
+}
+void xbeeGetMonth(){
+
+}
+void xbeeGetSec(){
+
+}
+void xbeeUploadPills(){
+
+}
+void xbeeDownloadPills(){
+
+}

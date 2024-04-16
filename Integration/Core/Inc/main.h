@@ -36,6 +36,7 @@ extern "C" {
 #include "Screens.h"
 #include "ds1307.h"
 #include "Pills.h";
+#include "xbee.h"
 
 /* USER CODE END Includes */
 

@@ -1,0 +1,10 @@
+../Core/Src/xbee.c:32:6:xbee_init	16	static
+../Core/Src/xbee.c:37:6:systemInit	8	static
+../Core/Src/xbee.c:47:6:xbeeGetHour	16	static
+../Core/Src/xbee.c:59:6:xbeeGetMin	16	static
+../Core/Src/xbee.c:67:6:xbeeGetYear	16	static
+../Core/Src/xbee.c:75:6:xbeeGetDayOfWeek	16	static
+../Core/Src/xbee.c:83:6:xbeeGetMonth	16	static
+../Core/Src/xbee.c:91:6:xbeeGetSec	16	static
+../Core/Src/xbee.c:99:6:xbeeUploadPills	4	static
+../Core/Src/xbee.c:102:6:xbeeDownloadPills	4	static

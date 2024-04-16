@@ -1,0 +1,43 @@
+/*
+ * xbee.h
+ *
+ *  Created on: Apr 14, 2024
+ *      Author: zawad
+ */
+
+#ifndef INC_XBEE_H_
+#define INC_XBEE_H_
+
+
+void xbee_init(UART_HandleTypeDef * uart_handle);
+
+void systemInit(){
+	uint8_t tx_buff[]={0,1,2,3,4,5,6,7,8,9};
+	 HAL_UART_Transmit(&xbee_uart, tx_buff, 10, 1000);
+}
+
+void xbeeGetHour(){
+
+}
+void xbeeGetMin(){
+
+}
+void xbeeGetYear(){
+
+}
+void xbeeGetDayOfWeek(){
+
+}
+void xbeeGetMonth(){
+
+}
+void xbeeGetSec(){
+
+}
+void xbeeUploadPills(){
+
+}
+void xbeeDownloadPills(){
+
+}
+#endif /* INC_XBEE_H_ */

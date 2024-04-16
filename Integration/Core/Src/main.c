@@ -119,6 +119,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	DS1307_Init(&hi2c1);
+	xbee_init(&huart2);
 	/* To test leap year correction. */
 	DS1307_SetDate(14);
 	DS1307_SetMonth(4);
@@ -137,11 +138,11 @@ int main(void)
 	//Sunday at 12:00.
 	addNewEntry(0, "WEEWOO1", 0, 12, 00);
 
-
+	uint8_t tx_buff [10] = {0,1,2,3,4,5,6,7,8,9};
   while (1)
   {
-
-	 LockScreen();
+	  //HAL_UART_Transmit(&huart2, tx_buff, 10, 1000);
+	  systemInit();
 
 	  /*authenticate(&Dispense);
 

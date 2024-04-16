@@ -261,7 +261,7 @@ void LockScreen(){
 	/* May show warning below. Ignore and proceed. */
 	sprintf(buffer, "Now: %s, %s %i %i, %i:%s:%i %s",
 	DAYS_OF_WEEK[dow], MONTHS_OF_YEAR[month - 1], date, year, hour, formattedMinute, second, ampm);
-	ILI9488_printText(buffer, 10, 10, ILI9488_BLACK, ILI9488_WHITE, 2);
+	ILI9488_printText(buffer, 10, 10, ILI9488_BLACK, ILI9488_WHITE, 1);
 	HAL_Delay(50);
 
 	update_next_pill_idx(DS1307_GetDayOfWeek(), DS1307_GetHour(), DS1307_GetMinute());

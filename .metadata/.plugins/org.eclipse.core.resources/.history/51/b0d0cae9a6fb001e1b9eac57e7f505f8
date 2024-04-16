@@ -1,0 +1,15 @@
+/*
+ * xbee.c
+ *
+ *  Created on: Apr 14, 2024
+ *      Author: zawad
+ */
+
+#include "ds1307.h"
+#include "Pills.h"
+
+//Initial Setup w/ server. Sets correct time, receives existing pill data and configuration information from server.
+void systemInit(){
+
+}
+
