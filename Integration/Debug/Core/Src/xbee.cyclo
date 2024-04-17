@@ -8,4 +8,4 @@
 ../Core/Src/xbee.c:94:7:xbeeGetSec	1
 ../Core/Src/xbee.c:103:7:xbeeGetDate	1
 ../Core/Src/xbee.c:112:6:xbeeUploadPills	1
-../Core/Src/xbee.c:115:6:xbeeDownloadPills	1
+../Core/Src/xbee.c:117:6:xbeeDownloadPills	2

@@ -1,23 +1,27 @@
-18:18:59 **** Incremental Build of configuration Debug for project Integration ****
+02:30:59 **** Incremental Build of configuration Debug for project Integration ****
 make -j7 all 
-arm-none-eabi-gcc "../Core/Src/Screens.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Screens.d" -MT"Core/Src/Screens.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Screens.o"
-In file included from ../Core/Inc/ili9488.h:15,
-                 from ../Core/Inc/Screens.h:11,
-                 from ../Core/Src/Screens.c:7:
+arm-none-eabi-gcc "../Core/Src/xbee.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/xbee.d" -MT"Core/Src/xbee.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/xbee.o"
+In file included from ../Core/Inc/ds1307.h:5,
+                 from ../Core/Src/xbee.c:8:
 ../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
    38 | #include "Pills.h";
       |                   ^
-../Core/Src/Screens.c: In function 'authenticate':
-../Core/Src/Screens.c:15:12: warning: implicit declaration of function 'drawCharTest'; did you mean 'drawChar'? [-Wimplicit-function-declaration]
-   15 |            drawCharTest(130, 55, '1', ILI9488_WHITE,ILI9488_RED, 3);
-      |            ^~~~~~~~~~~~
-      |            drawChar
-../Core/Src/Screens.c: In function 'Dispense':
-../Core/Src/Screens.c:214:33: warning: initializer-string for array of 'char' is too long
-  214 |         char success_msg [10] = "Dispensing...";
-      |                                 ^~~~~~~~~~~~~~~
+../Core/Src/xbee.c: In function 'systemInit':
+../Core/Src/xbee.c:45:10: warning: implicit declaration of function 'xbeeGetDate' [-Wimplicit-function-declaration]
+   45 |          xbeeGetDate();
+      |          ^~~~~~~~~~~
+../Core/Src/xbee.c: In function 'xbeeGetHour':
+../Core/Src/xbee.c:56:25: warning: unused variable 'test' [-Wunused-variable]
+   56 |                 uint8_t test = DS1307_GetHour();
+      |                         ^~~~
+../Core/Src/xbee.c: At top level:
+../Core/Src/xbee.c:103:14: warning: conflicting types for 'xbeeGetDate'; have 'void()'
+  103 |         void xbeeGetDate(){
+      |              ^~~~~~~~~~~
+../Core/Src/xbee.c:45:10: note: previous implicit declaration of 'xbeeGetDate' with type 'void()'
+   45 |          xbeeGetDate();
+      |          ^~~~~~~~~~~
 In file included from ../Core/Inc/main.h:38:
-../Core/Inc/Pills.h: At top level:
 ../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
    14 | static uint8_t numPills;
       |                ^~~~~~~~
@@ -28,11 +32,11 @@ Finished building target: Integration.elf
 arm-none-eabi-size  Integration.elf 
 arm-none-eabi-objdump -h -S Integration.elf  > "Integration.list"
    text	   data	    bss	    dec	    hex	filename
-  31588	    104	   3120	  34812	   87fc	Integration.elf
+  32252	    104	   4072	  36428	   8e4c	Integration.elf
 Finished building: default.size.stdout
  
 Finished building: Integration.list
  
 
-18:19:00 Build Finished. 0 errors, 5 warnings. (took 942ms)
+02:31:00 Build Finished. 0 errors, 6 warnings. (took 897ms)
 

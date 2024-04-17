@@ -276,7 +276,8 @@ void LockScreen(){
 	update_next_pill_idx(DS1307_GetDayOfWeek(), DS1307_GetHour(), DS1307_GetMinute());
 
 	 uint8_t pil = 0;
-	 for (pil = 0; pil < 3; pil++){
+	 uint8_t listSize = (getNumPills() <= 3) ? getNumPills() : 3;
+	 for (pil = 0; pil < listSize; pil++){
 
 		 //12 hour time for every pill
 		 pillEntry temp = getPillInfo(pil);

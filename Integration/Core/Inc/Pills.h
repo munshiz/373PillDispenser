@@ -15,7 +15,7 @@ static uint8_t numPills;
 typedef struct {
 	uint8_t ID;
 	uint8_t dispenserNum;
-	char * name;
+	char name [25];
 	uint8_t dayofWeek;
 	uint8_t hour;
 	uint8_t min;
@@ -30,4 +30,10 @@ uint8_t get_next_pill_idx();
 uint8_t updatelastTakenPill();
 uint8_t update_next_pill_idx(uint8_t dayofweek, uint8_t hour, uint8_t min);
 
+uint8_t getNumPills();
+
+void clearPillList();
+
+//explicitly ONLY for when we are loading in a pre-sorted list of entries.
+void loadNewPillEntry(uint8_t dispenserNum, char * name, uint8_t dayofWeek, uint8_t hour, uint8_t min);
 #endif /* INC_PILLS_H_ */

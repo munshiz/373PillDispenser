@@ -1,0 +1,142 @@
+/*
+ * xbee.c
+ *
+ *  Created on: Apr 14, 2024
+ *      Author: zawad
+ */
+
+#include "ds1307.h"
+#include "Pills.h"
+#include "main.h"
+
+
+/**XBEE COMMAND LIST**/
+/* ALL COMMANDS START WITH 1010 to start a transaction.
+ *
+ * GetHour: 0001
+ * GetMin: 0010
+ * GetSec: 0011
+ * Get DayOfWeek: 0100
+ * Get Year: 0101
+ * Get Month: 0110
+ * Get Date : 1001
+ * The following commands are constantly sending data until end (e.g all pill information) has been transferred.
+ * UPLOAD PILL INFORMATION: 0111:
+ *
+ * DOWNLOAD PILL INFORMATION: 1000
+ */
+
+
+UART_HandleTypeDef * xbee_uart;
+
+//Sets UART Handle for our UART Stuff.
+void xbee_init(UART_HandleTypeDef * uart_handle) {
+	xbee_uart = uart_handle;
+}
+
+//Initial Setup w/ server. Sets correct time, receives existing pill data and configuration information from server.
+void systemInit(){
+	 xbeeGetHour();
+	 xbeeGetMin();
+	 xbeeGetYear();
+	 xbeeGetDayOfWeek();
+	 xbeeGetMonth();
+	 xbeeGetSec();
+	 xbeeGetDate();
+	 xbeeDownloadPills();
+}
+
+	void xbeeGetHour(){
+		uint8_t tx_buffer [1];
+		tx_buffer [0] = (0xA) << 4 | 0x01;
+		uint8_t rx_buffer [1];
+		HAL_UART_Transmit(xbee_uart, tx_buffer, 1, 100);
+		HAL_UART_Receive(xbee_uart, rx_buffer, 1, 100);
+		DS1307_SetHour(rx_buffer[0]);
+		uint8_t test = DS1307_GetHour();
+		HAL_Delay(50);
+
+	}
+
+	void xbeeGetMin(){
+		uint8_t tx_buffer [1];
+		tx_buffer [0] = (0xA) << 4 | 0x02;
+		uint8_t rx_buffer [1];
+		HAL_UART_Transmit(xbee_uart, tx_buffer, 1, 100);
+		HAL_UART_Receive(xbee_uart, rx_buffer, 1, 100);
+		DS1307_SetMinute(rx_buffer[0]);
+	}
+	void xbeeGetYear(){
+		uint8_t tx_buffer [1];
+		tx_buffer [0] = (0xA) << 4 | 0x05;
+		uint8_t rx_buffer [2];
+		HAL_UART_Transmit(xbee_uart, tx_buffer, 1, 100);
+		HAL_UART_Receive(xbee_uart, rx_buffer, 2, 100);
+		DS1307_SetYear((rx_buffer[0] << 8) | rx_buffer[1]);
+	}
+	void xbeeGetDayOfWeek(){
+		uint8_t tx_buffer [1];
+		tx_buffer [0] = (0xA) << 4 | 0x08;
+		uint8_t rx_buffer [1];
+		HAL_UART_Transmit(xbee_uart, tx_buffer, 1, 100);
+		HAL_UART_Receive(xbee_uart, rx_buffer, 1, 100);
+		DS1307_SetDayOfWeek(rx_buffer[0]);
+	}
+	void xbeeGetMonth(){
+		uint8_t tx_buffer [1];
+		tx_buffer [0] = (0xA) << 4 | 0x06;
+		uint8_t rx_buffer [1];
+		HAL_UART_Transmit(xbee_uart, tx_buffer, 1, 100);
+		HAL_UART_Receive(xbee_uart, rx_buffer, 1, 100);
+		DS1307_SetMonth(rx_buffer[0]);
+	}
+
+	void xbeeGetSec(){
+		uint8_t tx_buffer [1];
+		tx_buffer [0] = (0xA) << 4 | 0x03;
+		uint8_t rx_buffer [1];
+		HAL_UART_Transmit(xbee_uart, tx_buffer, 1, 100);
+		HAL_UART_Receive(xbee_uart, rx_buffer, 1, 100);
+		DS1307_SetSecond(rx_buffer[0]);
+	}
+
+	void xbeeGetDate(){
+		uint8_t tx_buffer [1];
+		tx_buffer [0] = (0xA) << 4 | 0x09;
+		uint8_t rx_buffer [1];
+		HAL_UART_Transmit(xbee_uart, tx_buffer, 1, 100);
+		HAL_UART_Receive(xbee_uart, rx_buffer, 1, 100);
+		DS1307_SetSecond(rx_buffer[0]);
+	}
+
+void xbeeUploadPills(){
+
+	}
+
+
+void xbeeDownloadPills(){
+	clearPillList();
+	uint8_t tx_buffer [1];
+	uint8_t rx_buffer [100];
+	tx_buffer[0] = 0xA7; //INITIATE PILL TRANSFER INFORMATION.
+	HAL_UART_Transmit(xbee_uart, tx_buffer, 1, 100);
+	HAL_UART_Receive(xbee_uart, rx_buffer, 1, 100); //receive newNumpills
+	uint8_t numNewPills = rx_buffer[0];
+	uint8_t i;
+	for(i = 0; i < numNewPills; i++){
+		HAL_UART_Transmit(xbee_uart, tx_buffer, 1, 100);
+		HAL_UART_Receive(xbee_uart, rx_buffer, 1, 100); //receive Packet Size
+		uint8_t packet_size = rx_buffer[0];
+		uint8_t NameSize = packet_size - 4;
+		HAL_UART_Transmit(xbee_uart, tx_buffer, 1, 100);
+		HAL_UART_Receive(xbee_uart, rx_buffer, packet_size, 100);
+		uint8_t dispenserNum = rx_buffer[0];
+		char pillName [10]; //= calloc(NameSize, 1); //dynamic memory, allocate string.
+		memcpy(pillName, rx_buffer + 1, NameSize);
+		uint8_t dayofWeek = rx_buffer[1 + (NameSize)];
+		uint8_t hour = rx_buffer[2 + (NameSize)];
+		uint8_t min = rx_buffer[3 + (NameSize)];
+		loadNewPillEntry(dispenserNum, pillName, dayofWeek, hour, min);
+	}
+	sortEntries();
+}

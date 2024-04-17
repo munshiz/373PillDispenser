@@ -121,8 +121,8 @@ int main(void)
 	DS1307_Init(&hi2c1);
 	xbee_init(&huart2);
 	/* To test leap year correction. */
-	DS1307_SetDate(14);
-	DS1307_SetMonth(4);
+	DS1307_SetDate(4);
+	DS1307_SetMonth(3);
 	DS1307_SetYear(2024);
 	DS1307_SetDayOfWeek(2);
 	DS1307_SetHour(22);
@@ -140,9 +140,10 @@ int main(void)
 
 	uint8_t tx_buff [10] = {0,1,2,3,4,5,6,7,8,9};
 	systemInit();
+	xbeeDownloadPills();
   while (1)
   {
-	  testTouch();
+	  LockScreen();
 	  //HAL_UART_Transmit(&huart2, tx_buff, 10, 1000);
 
 

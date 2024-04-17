@@ -115,6 +115,7 @@ void xbeeUploadPills(){
 
 
 void xbeeDownloadPills(){
+	clearPillList();
 	uint8_t tx_buffer [1];
 	uint8_t rx_buffer [100];
 	tx_buffer[0] = 0xA7; //INITIATE PILL TRANSFER INFORMATION.
@@ -126,17 +127,16 @@ void xbeeDownloadPills(){
 		HAL_UART_Transmit(xbee_uart, tx_buffer, 1, 100);
 		HAL_UART_Receive(xbee_uart, rx_buffer, 1, 100); //receive Packet Size
 		uint8_t packet_size = rx_buffer[0];
+		uint8_t NameSize = packet_size - 4;
 		HAL_UART_Transmit(xbee_uart, tx_buffer, 1, 100);
 		HAL_UART_Receive(xbee_uart, rx_buffer, packet_size, 100);
-		uint8_t numNewPills = rx_buffer[0];
-		uint8_t ID = rx_buffer[1];
-		uint8_t dispenserNum = rx_buffer[2];
-		char * pillName [50];
-		memset(pillName, tx_buffer + 4, packet_size - 7);
-		uint8_t dayofWeek = rx_buffer[4 + (packet_size - 7)];
-		uint8_t hour = rx_buffer[5 + (packet_size - 7)];
-		uint8_t min = rx_buffer[6 + (packet_size - 7)];
-		uint8_t taken = rx_buffer[7 + (packet_size - 7)];
-		addNewEntry(dispenserNum, pillName, dayofWeek, hour, min);
+		uint8_t dispenserNum = rx_buffer[0];
+		char pillName [25];
+		memcpy(pillName, rx_buffer + 1, NameSize);
+		uint8_t dayofWeek = rx_buffer[1 + (NameSize)];
+		uint8_t hour = rx_buffer[2 + (NameSize)];
+		uint8_t min = rx_buffer[3 + (NameSize)];
+		loadNewPillEntry(dispenserNum, pillName, dayofWeek, hour, min);
 	}
+	sortEntries();
 }

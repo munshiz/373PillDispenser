@@ -22,7 +22,7 @@ void sortEntries(){
 	//WOOOO SELECTION SORT MY BELOVED!!!!
 	for (i = 0; i < numPills; i++){
 		minimum_idx = i;
-		for (j = i + 1; j < numPills; j++){x
+		for (j = i + 1; j < numPills; j++){
 			if (compPillEntry(pillList[j], pillList[minimum_idx])){
 				minimum_idx = j;
 			}
@@ -107,6 +107,20 @@ uint8_t getNumPills(){
 }
 
 void clearPillList(){
+	uint8_t i = 0;
+	for (i = 0; i < numPills; i++){
+		free(pillList[i].name); //free the dynamically allocated strings.
+	}
 	numPills = 0;
+}
+
+//explicitly ONLY for when we are loading in a pre-sorted list of entries.
+void loadNewPillEntry(uint8_t dispenserNum, char * name, uint8_t dayofWeek, uint8_t hour, uint8_t min){
+	//uint8_t ID; uint8_t dispenserNum; char * name; uint8_t dayofWeek; uint8_t hour; uint8_t min; uint8_t taken;
+	//lmao don't know how to do this a better way but it might work ig
+	pillEntry wew = {numPills, dispenserNum, " ", dayofWeek, hour, min, 1};
+	memcpy(wew.name, name, 25);
+	pillList[numPills] = wew;
+	numPills++;
 }
 
