@@ -21,6 +21,44 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "008_Open_Sans_Bold.h"
+#include "009_Open_Sans_Bold.h"
+#include "010_Open_Sans_Bold.h"
+#include "012_Open_Sans_Bold.h"
+#include "014_Open_Sans_Bold.h"
+#include "016_Open_Sans_Bold.h"
+#include "018_Open_Sans_Bold.h"
+#include "020_Open_Sans_Bold.h"
+#include "022_Open_Sans_Bold.h"
+#include "024_Open_Sans_Bold.h"
+#include "026_Open_Sans_Bold.h"
+#include "028_Open_Sans_Bold.h"
+#include "036_Open_Sans_Bold.h"
+#include "048_Open_Sans_Bold.h"
+#include "072_Open_Sans_Bold.h"
+#include "096_Open_Sans_Bold.h"
+#include "112_Open_Sans_Bold.h"
+#include "128_Open_Sans_Bold.h"
+
+#define _Open_Sans_Bold_8      &Open_Sans_Bold_8
+#define _Open_Sans_Bold_9      &Open_Sans_Bold_9
+#define _Open_Sans_Bold_10     &Open_Sans_Bold_10
+#define _Open_Sans_Bold_11     &Open_Sans_Bold_11
+#define _Open_Sans_Bold_12      &Open_Sans_Bold_12
+#define _Open_Sans_Bold_14      &Open_Sans_Bold_14
+#define _Open_Sans_Bold_16      &Open_Sans_Bold_16
+#define _Open_Sans_Bold_18      &Open_Sans_Bold_18
+#define _Open_Sans_Bold_20      &Open_Sans_Bold_20
+#define _Open_Sans_Bold_22      &Open_Sans_Bold_22
+#define _Open_Sans_Bold_24      &Open_Sans_Bold_24
+#define _Open_Sans_Bold_26      &Open_Sans_Bold_26
+#define _Open_Sans_Bold_28      &Open_Sans_Bold_28
+#define _Open_Sans_Bold_36      &Open_Sans_Bold_36
+#define _Open_Sans_Bold_48      &Open_Sans_Bold_48
+#define _Open_Sans_Bold_72      &Open_Sans_Bold_72
+#define _Open_Sans_Bold_96      &Open_Sans_Bold_96
+#define _Open_Sans_Bold_112      &Open_Sans_Bold_112
+#define _Open_Sans_Bold_128      &Open_Sans_Bold_128
 
 /* USER CODE END Includes */
 
@@ -282,8 +320,9 @@ fillScreen(ILI9488_WHITE);
 
    uint16_t count = 0;
    uint16_t entered[10];
-   char greetings[] = "In the quiet woods, under a starlit sky, whispers of ancient secrets echoed through time, captivating every soul.";
-   ILI9488_printTextTest(greetings, 25, 25, ILI9488_BLACK, ILI9488_WHITE, 3);
+   char greetings[] = "Sunday, April 14 2024, 22: 13: 39";
+  // ILI9488_printTextTest(greetings, 25, 25, ILI9488_BLACK, ILI9488_WHITE, 3);
+   LCD_Font(25, 25, greetings, _Open_Sans_Bold_20, 1, ILI9488_BLACK);
   while (1)
   {
 	  //ILI9488_printTextTest(greetings, 25, 25, ILI9488_BLACK, ILI9488_RED, 3);
