@@ -14,5 +14,6 @@
 void authenticate(void (*nextScreen)());
 void Dispense();
 void LockScreen();
+void testTouch();
 
 #endif /* INC_SCREENS_H_ */

@@ -119,33 +119,32 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	DS1307_Init(&hi2c1);
+	xbee_init(&huart2);
 	/* To test leap year correction. */
 	DS1307_SetDate(14);
 	DS1307_SetMonth(4);
 	DS1307_SetYear(2024);
-	DS1307_SetDayOfWeek(0);
+	DS1307_SetDayOfWeek(2);
 	DS1307_SetHour(22);
 	DS1307_SetMinute(13);
 	DS1307_SetSecond(30);
+
 	HAL_Delay(1000);
-	char name [10] = "WEEWOO";
-	char name2 [10] = "WEEWOO 2";
-	char name3 [10] = "WEEWOO 3";
+
 	//Monday at 11:00.
-	addNewEntry(0, name3, 0, 11, 00);
+	addNewEntry(0, "WEEWOO2", 1, 11, 00);
 	//Friday at 5:30.
-	addNewEntry(0, name, 0, 5, 30);
+	addNewEntry(0, "WEEWOO3", 6, 5, 30);
 	//Sunday at 12:00.
-	addNewEntry(0, name2, 0, 12, 00);
-	static pillEntry pillList [50];
-	pillsInit();
+	addNewEntry(0, "WEEWOO1", 0, 12, 00);
+
+	uint8_t tx_buff [10] = {0,1,2,3,4,5,6,7,8,9};
   while (1)
   {
+	  //HAL_UART_Transmit(&huart2, tx_buff, 10, 1000);
+	  systemInit();
 
-	  ILI9488_printText(pillList[0].name, 10, 10, ILI9488_BLACK, ILI9488_WHITE, 1);
-	  ILI9488_printText(pillList[1].name, 10, 100, ILI9488_BLACK, ILI9488_WHITE, 1);
-	  ILI9488_printText(pillList[2].name, 10, 200, ILI9488_BLACK, ILI9488_WHITE, 1);
-	   //authenticate(&Dispense);
+	  /*authenticate(&Dispense);
 
 
     /* USER CODE END WHILE */

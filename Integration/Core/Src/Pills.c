@@ -5,9 +5,6 @@ static uint8_t next_time_pill_idx = 0;
 static uint8_t last_taken_pill_idx = 0;
 
 
-void pillsinit(){
-	numPills = 0;
-}
 void addNewEntry(uint8_t dispenserNum, char * name, uint8_t dayofWeek, uint8_t hour, uint8_t min){
 	//uint8_t ID; uint8_t dispenserNum; char * name; uint8_t dayofWeek; uint8_t hour; uint8_t min; uint8_t taken;
 	pillEntry wew = {numPills, dispenserNum, name, dayofWeek, hour, min, 1};
@@ -25,7 +22,7 @@ void sortEntries(){
 	//WOOOO SELECTION SORT MY BELOVED!!!!
 	for (i = 0; i < numPills; i++){
 		minimum_idx = i;
-		for (j = i + 1; j < numPills; j++){
+		for (j = i + 1; j < numPills; j++){x
 			if (compPillEntry(pillList[j], pillList[minimum_idx])){
 				minimum_idx = j;
 			}
@@ -105,4 +102,11 @@ pillEntry getPillInfo(uint8_t idx){
 	return pillList[idx];
 }
 
+uint8_t getNumPills(){
+	return numPills;
+}
+
+void clearPillList(){
+	numPills = 0;
+}
 

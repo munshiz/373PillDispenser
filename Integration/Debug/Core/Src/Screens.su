@@ -1,3 +1,4 @@
 ../Core/Src/Screens.c:11:6:authenticate	56	static
 ../Core/Src/Screens.c:213:6:Dispense	32	static
-../Core/Src/Screens.c:232:6:LockScreen	328	static
+../Core/Src/Screens.c:231:6:testTouch	72	static
+../Core/Src/Screens.c:241:6:LockScreen	328	static

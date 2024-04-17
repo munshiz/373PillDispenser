@@ -22,34 +22,40 @@ while (1):
     #getYear
     if (s == bytes([0xa5])):
         print("received ", s)
-        ser.write(bytes([12]))
         current_year = datetime.now().year
-        ser.write(bytes([current_year]))
+        ser.write(bytes([((current_year & (0xFF00)) >> 8), current_year & 0xFF]))
 
     #getDayOfWeek
     if (s == bytes([0xa8])):
-        print("received ", s)
-        ser.write(bytes([12]))
-        current_month = datetime.now().today()
-        ser.write(bytes([current_month]))   
+         print("received ", s) 
+        current_dow = (datetime.now().weekday() + 1) % 7
+        ser.write(bytes([current_dow]))   
 
     #getMonth
     if (s == bytes([0xa6])):
         print("received ", s)
-        ser.write(bytes([12]))
         current_month = datetime.now().month
         ser.write(bytes([current_month]))
 
     #getSecond
     if (s == bytes([0xa3])):
         print("received ", s)
-        ser.write(bytes([12]))
         current_second = datetime.now().second
         ser.write(bytes([current_second]))
 
     #getDate
     if (s == bytes([0xa9])):
         print("received ", s)
-        ser.write(bytes([12]))
         current_date = datetime.now().day
         ser.write(bytes([current_date]))
+
+    #sendPillInfo
+     if (s == bytes([0xa7])):
+        print("received ", s)
+        ser.write(bytes([1])) #number of pills.
+        while(ser.read(1) != [0xa7])
+        ser.write(bytes([14])) #Packet Size.
+        ser.write(bytes[])
+
+
+    

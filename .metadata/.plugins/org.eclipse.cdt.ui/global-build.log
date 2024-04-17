@@ -11846,3 +11846,489 @@ Finished building: default.size.stdout
  
 Finished building: Integration.list
  
+16:47:40 **** Incremental Build of configuration Debug for project Integration ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/xbee.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/xbee.d" -MT"Core/Src/xbee.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/xbee.o"
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+In file included from ../Core/Inc/ds1307.h:5,
+                 from ../Core/Src/xbee.c:8:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:152:5: warning: "/*" within comment [-Wcomment]
+  152 |     /* USER CODE END WHILE */
+      |      
+../Core/Src/main.c:141:17: warning: unused variable 'tx_buff' [-Wunused-variable]
+  141 |         uint8_t tx_buff [10] = {0,1,2,3,4,5,6,7,8,9};
+      |                 ^~~~~~~
+../Core/Src/main.c:81:17: warning: unused variable 'y' [-Wunused-variable]
+   81 |         int16_t y;
+      |                 ^
+../Core/Src/main.c:80:17: warning: unused variable 'x' [-Wunused-variable]
+   80 |         int16_t x;
+      |                 ^
+../Core/Src/xbee.c: In function 'systemInit':
+../Core/Src/xbee.c:45:10: warning: implicit declaration of function 'xbeeGetDate' [-Wimplicit-function-declaration]
+   45 |          xbeeGetDate();
+      |          ^~~~~~~~~~~
+../Core/Src/xbee.c: In function 'xbeeGetHour':
+../Core/Src/xbee.c:56:25: warning: unused variable 'test' [-Wunused-variable]
+   56 |                 uint8_t test = DS1307_GetHour();
+      |                         ^~~~
+../Core/Src/xbee.c: At top level:
+../Core/Src/xbee.c:103:14: warning: conflicting types for 'xbeeGetDate'; have 'void()'
+  103 |         void xbeeGetDate(){
+      |              ^~~~~~~~~~~
+../Core/Src/xbee.c:45:10: note: previous implicit declaration of 'xbeeGetDate' with type 'void()'
+   45 |          xbeeGetDate();
+      |          ^~~~~~~~~~~
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h: At top level:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+arm-none-eabi-gcc -o "Integration.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/zawad/Documents/EECS373/project/Integration/STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="Integration.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.0.100.202403111906/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: warning: Integration.elf has a LOAD segment with RWX permissions
+Finished building target: Integration.elf
+ 
+arm-none-eabi-size  Integration.elf 
+arm-none-eabi-objdump -h -S Integration.elf  > "Integration.list"
+   text	   data	    bss	    dec	    hex	filename
+  31332	    104	   3120	  34556	   86fc	Integration.elf
+Finished building: default.size.stdout
+ 
+Finished building: Integration.list
+ 
+18:13:52 **** Incremental Build of configuration Debug for project Integration ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/Pills.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Pills.d" -MT"Core/Src/Pills.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Pills.o"
+arm-none-eabi-gcc "../Core/Src/Screens.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Screens.d" -MT"Core/Src/Screens.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Screens.o"
+arm-none-eabi-gcc "../Core/Src/ds1307.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ds1307.d" -MT"Core/Src/ds1307.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ds1307.o"
+arm-none-eabi-gcc "../Core/Src/ili9488.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ili9488.d" -MT"Core/Src/ili9488.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ili9488.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_hal_msp.d" -MT"Core/Src/stm32l4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32l4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32l4xx_it.d" -MT"Core/Src/stm32l4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32l4xx_it.o"
+In file included from ../Core/Inc/ili9488.h:15,
+                 from ../Core/Inc/Screens.h:11,
+                 from ../Core/Src/Screens.c:7:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+In file included from ../Core/Inc/ili9488.h:15,
+                 from ../Core/Src/ili9488.c:7:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+In file included from ../Core/Inc/ds1307.h:5,
+                 from ../Core/Src/ds1307.c:3:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+In file included from ../Core/Src/stm32l4xx_hal_msp.c:22:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+In file included from ../Core/Src/stm32l4xx_it.c:21:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:152:5: warning: "/*" within comment [-Wcomment]
+  152 |     /* USER CODE END WHILE */
+      |      
+../Core/Src/main.c:141:17: warning: unused variable 'tx_buff' [-Wunused-variable]
+  141 |         uint8_t tx_buff [10] = {0,1,2,3,4,5,6,7,8,9};
+      |                 ^~~~~~~
+../Core/Src/main.c:81:17: warning: unused variable 'y' [-Wunused-variable]
+   81 |         int16_t y;
+      |                 ^
+../Core/Src/main.c:80:17: warning: unused variable 'x' [-Wunused-variable]
+   80 |         int16_t x;
+      |                 ^
+../Core/Src/ili9488.c: In function 'WaitLastData':
+../Core/Src/ili9488.c:358:9: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  358 |         while(!(SPI1->SR & SPI_SR_TXE));
+      |         ^~~~~
+../Core/Src/ili9488.c:359:17: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+  359 |                 while(SPI1->SR & SPI_SR_BSY);
+      |                 ^~~~~
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+In file included from ../Core/Inc/ds1307.h:5,
+                 from ../Core/Inc/Pills.h:11,
+                 from ../Core/Src/Pills.c:1:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+../Core/Src/ili9488.c: In function 'ILI9488_printText':
+../Core/Src/ili9488.c:942:42: warning: comparison between pointer and integer
+  942 |         for(uint16_t i=0; i<40 && text[i]!=NULL; i++)
+      |                                          ^~
+../Core/Src/ili9488.c: In function 'ILI9488_printTextTest':
+../Core/Src/ili9488.c:958:43: warning: comparison between pointer and integer
+  958 |         for(uint16_t i=0; i<100 && text[i]!=NULL; i++)
+      |                                           ^~
+../Core/Src/ili9488.c: In function 'testLines':
+../Core/Src/ili9488.c:967:30: warning: unused variable 't' [-Wunused-variable]
+  967 |         unsigned long start, t;
+      |                              ^
+../Core/Src/ili9488.c:967:23: warning: unused variable 'start' [-Wunused-variable]
+  967 |         unsigned long start, t;
+      |                       ^~~~~
+../Core/Src/Pills.c: In function 'updatelastTakenPill':
+../Core/Src/Pills.c:93:30: warning: passing argument 1 of 'update_next_pill_idx' makes integer from pointer without a cast [-Wint-conversion]
+   93 |         update_next_pill_idx(DS1307_GetDayOfWeek, DS1307_GetHour, DS1307_GetMinute);
+      |                              ^~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              uint8_t (*)(void) {aka unsigned char (*)(void)}
+../Core/Src/Pills.c:59:38: note: expected 'uint8_t' {aka 'unsigned char'} but argument is of type 'uint8_t (*)(void)' {aka 'unsigned char (*)(void)'}
+   59 | uint8_t update_next_pill_idx(uint8_t dayofweek, uint8_t hour, uint8_t min){
+      |                              ~~~~~~~~^~~~~~~~~
+../Core/Src/Pills.c:93:51: warning: passing argument 2 of 'update_next_pill_idx' makes integer from pointer without a cast [-Wint-conversion]
+   93 |         update_next_pill_idx(DS1307_GetDayOfWeek, DS1307_GetHour, DS1307_GetMinute);
+      |                                                   ^~~~~~~~~~~~~~
+      |                                                   |
+      |                                                   uint8_t (*)(void) {aka unsigned char (*)(void)}
+../Core/Src/Pills.c:59:57: note: expected 'uint8_t' {aka 'unsigned char'} but argument is of type 'uint8_t (*)(void)' {aka 'unsigned char (*)(void)'}
+   59 | uint8_t update_next_pill_idx(uint8_t dayofweek, uint8_t hour, uint8_t min){
+      |                                                 ~~~~~~~~^~~~
+../Core/Src/Pills.c:93:67: warning: passing argument 3 of 'update_next_pill_idx' makes integer from pointer without a cast [-Wint-conversion]
+   93 |         update_next_pill_idx(DS1307_GetDayOfWeek, DS1307_GetHour, DS1307_GetMinute);
+      |                                                                   ^~~~~~~~~~~~~~~~
+      |                                                                   |
+      |                                                                   uint8_t (*)(void) {aka unsigned char (*)(void)}
+../Core/Src/Pills.c:59:71: note: expected 'uint8_t' {aka 'unsigned char'} but argument is of type 'uint8_t (*)(void)' {aka 'unsigned char (*)(void)'}
+   59 | uint8_t update_next_pill_idx(uint8_t dayofweek, uint8_t hour, uint8_t min){
+      |                                                               ~~~~~~~~^~~
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h: At top level:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+../Core/Src/Pills.c: In function 'update_next_pill_idx':
+../Core/Src/Pills.c:83:1: warning: control reaches end of non-void function [-Wreturn-type]
+   83 | }
+      | ^
+../Core/Src/Pills.c: In function 'updatelastTakenPill':
+../Core/Src/Pills.c:102:1: warning: control reaches end of non-void function [-Wreturn-type]
+  102 | }
+      | ^
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+../Core/Src/Screens.c: In function 'authenticate':
+../Core/Src/Screens.c:15:12: warning: implicit declaration of function 'drawCharTest'; did you mean 'drawChar'? [-Wimplicit-function-declaration]
+   15 |            drawCharTest(130, 55, '1', ILI9488_WHITE,ILI9488_RED, 3);
+      |            ^~~~~~~~~~~~
+      |            drawChar
+../Core/Src/Screens.c: In function 'Dispense':
+../Core/Src/Screens.c:214:33: warning: initializer-string for array of 'char' is too long
+  214 |         char success_msg [10] = "Dispensing...";
+      |                                 ^~~~~~~~~~~~~~~
+../Core/Src/ili9488.c: At top level:
+../Core/Src/ili9488.c:23:17: warning: 'tftRESET_PIN' defined but not used [-Wunused-variable]
+   23 | static uint16_t tftRESET_PIN;
+      |                 ^~~~~~~~~~~~
+../Core/Src/ili9488.c:22:23: warning: 'tftRESET_GPIO' defined but not used [-Wunused-variable]
+   22 | static GPIO_TypeDef  *tftRESET_GPIO;
+      |                       ^~~~~~~~~~~~~
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+../Core/Src/Screens.c: In function 'testTouch':
+../Core/Src/Screens.c:235:17: error: 'wee' undeclared (first use in this function); did you mean 'weee'?
+  235 |         sprintf(wee, "X = %i, Y = %i", touchX, touchY);
+      |                 ^~~
+      |                 weee
+../Core/Src/Screens.c:235:17: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/Screens.c:236:9: warning: implicit declaration of function 'ILI9488_printTest'; did you mean 'ILI9488_printText'? [-Wimplicit-function-declaration]
+  236 |         ILI9488_printTest(wee, 10,10,ILI9488_BLACK, ILI9488_WHITE, 1);
+      |         ^~~~~~~~~~~~~~~~~
+      |         ILI9488_printText
+../Core/Src/Screens.c:234:14: warning: unused variable 'weee' [-Wunused-variable]
+  234 |         char weee[50];
+      |              ^~~~
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h: At top level:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+make: *** [Core/Src/subdir.mk:52: Core/Src/Screens.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+18:14:05 **** Incremental Build of configuration Debug for project Integration ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/Screens.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Screens.d" -MT"Core/Src/Screens.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Screens.o"
+arm-none-eabi-gcc "../Core/Src/xbee.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/xbee.d" -MT"Core/Src/xbee.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/xbee.o"
+arm-none-eabi-gcc "../Core/Src/xpt2046.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/xpt2046.d" -MT"Core/Src/xpt2046.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/xpt2046.o"
+In file included from ../Core/Inc/ili9488.h:15,
+                 from ../Core/Inc/Screens.h:11,
+                 from ../Core/Src/Screens.c:7:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+In file included from ../Core/Inc/ds1307.h:5,
+                 from ../Core/Src/xbee.c:8:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+In file included from ../Core/Inc/xpt2046.h:4,
+                 from ../Core/Src/xpt2046.c:1:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+../Core/Src/xbee.c: In function 'systemInit':
+../Core/Src/xbee.c:45:10: warning: implicit declaration of function 'xbeeGetDate' [-Wimplicit-function-declaration]
+   45 |          xbeeGetDate();
+      |          ^~~~~~~~~~~
+../Core/Src/xbee.c: In function 'xbeeGetHour':
+../Core/Src/xbee.c:56:25: warning: unused variable 'test' [-Wunused-variable]
+   56 |                 uint8_t test = DS1307_GetHour();
+      |                         ^~~~
+../Core/Src/Screens.c: In function 'authenticate':
+../Core/Src/Screens.c:15:12: warning: implicit declaration of function 'drawCharTest'; did you mean 'drawChar'? [-Wimplicit-function-declaration]
+   15 |            drawCharTest(130, 55, '1', ILI9488_WHITE,ILI9488_RED, 3);
+      |            ^~~~~~~~~~~~
+      |            drawChar
+../Core/Src/xbee.c: At top level:
+../Core/Src/xbee.c:103:14: warning: conflicting types for 'xbeeGetDate'; have 'void()'
+  103 |         void xbeeGetDate(){
+      |              ^~~~~~~~~~~
+../Core/Src/xbee.c:45:10: note: previous implicit declaration of 'xbeeGetDate' with type 'void()'
+   45 |          xbeeGetDate();
+      |          ^~~~~~~~~~~
+../Core/Src/Screens.c: In function 'Dispense':
+../Core/Src/Screens.c:214:33: warning: initializer-string for array of 'char' is too long
+  214 |         char success_msg [10] = "Dispensing...";
+      |                                 ^~~~~~~~~~~~~~~
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+../Core/Src/Screens.c: In function 'testTouch':
+../Core/Src/Screens.c:236:9: warning: implicit declaration of function 'ILI9488_printTest'; did you mean 'ILI9488_printText'? [-Wimplicit-function-declaration]
+  236 |         ILI9488_printTest(wee, 10,10,ILI9488_BLACK, ILI9488_WHITE, 1);
+      |         ^~~~~~~~~~~~~~~~~
+      |         ILI9488_printText
+../Core/Src/Screens.c:236:27: error: 'wee' undeclared (first use in this function); did you mean 'weee'?
+  236 |         ILI9488_printTest(wee, 10,10,ILI9488_BLACK, ILI9488_WHITE, 1);
+      |                           ^~~
+      |                           weee
+../Core/Src/Screens.c:236:27: note: each undeclared identifier is reported only once for each function it appears in
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h: At top level:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+make: *** [Core/Src/subdir.mk:52: Core/Src/Screens.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+18:14:10 **** Incremental Build of configuration Debug for project Integration ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/Screens.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Screens.d" -MT"Core/Src/Screens.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Screens.o"
+In file included from ../Core/Inc/ili9488.h:15,
+                 from ../Core/Inc/Screens.h:11,
+                 from ../Core/Src/Screens.c:7:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+../Core/Src/Screens.c: In function 'authenticate':
+../Core/Src/Screens.c:15:12: warning: implicit declaration of function 'drawCharTest'; did you mean 'drawChar'? [-Wimplicit-function-declaration]
+   15 |            drawCharTest(130, 55, '1', ILI9488_WHITE,ILI9488_RED, 3);
+      |            ^~~~~~~~~~~~
+      |            drawChar
+../Core/Src/Screens.c: In function 'Dispense':
+../Core/Src/Screens.c:214:33: warning: initializer-string for array of 'char' is too long
+  214 |         char success_msg [10] = "Dispensing...";
+      |                                 ^~~~~~~~~~~~~~~
+../Core/Src/Screens.c: In function 'testTouch':
+../Core/Src/Screens.c:236:9: warning: implicit declaration of function 'ILI9488_printTest'; did you mean 'ILI9488_printText'? [-Wimplicit-function-declaration]
+  236 |         ILI9488_printTest(weee, 10,10,ILI9488_BLACK, ILI9488_WHITE, 1);
+      |         ^~~~~~~~~~~~~~~~~
+      |         ILI9488_printText
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h: At top level:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+arm-none-eabi-gcc -o "Integration.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/zawad/Documents/EECS373/project/Integration/STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="Integration.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.0.100.202403111906/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: warning: Integration.elf has a LOAD segment with RWX permissions
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.0.100.202403111906/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: ./Core/Src/Screens.o: in function `testTouch':
+/Users/zawad/Documents/EECS373/project/Integration/Debug/../Core/Src/Screens.c:236: undefined reference to `ILI9488_printTest'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:64: Integration.elf] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+18:14:15 **** Incremental Build of configuration Debug for project Integration ****
+make -j7 all 
+arm-none-eabi-gcc -o "Integration.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/zawad/Documents/EECS373/project/Integration/STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="Integration.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.0.100.202403111906/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: warning: Integration.elf has a LOAD segment with RWX permissions
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.0.100.202403111906/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: ./Core/Src/Screens.o: in function `testTouch':
+/Users/zawad/Documents/EECS373/project/Integration/Debug/../Core/Src/Screens.c:236: undefined reference to `ILI9488_printTest'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:64: Integration.elf] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+18:14:31 **** Incremental Build of configuration Debug for project Integration ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/Screens.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Screens.d" -MT"Core/Src/Screens.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Screens.o"
+In file included from ../Core/Inc/ili9488.h:15,
+                 from ../Core/Inc/Screens.h:11,
+                 from ../Core/Src/Screens.c:7:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+../Core/Src/Screens.c: In function 'authenticate':
+../Core/Src/Screens.c:15:12: warning: implicit declaration of function 'drawCharTest'; did you mean 'drawChar'? [-Wimplicit-function-declaration]
+   15 |            drawCharTest(130, 55, '1', ILI9488_WHITE,ILI9488_RED, 3);
+      |            ^~~~~~~~~~~~
+      |            drawChar
+../Core/Src/Screens.c: In function 'Dispense':
+../Core/Src/Screens.c:214:33: warning: initializer-string for array of 'char' is too long
+  214 |         char success_msg [10] = "Dispensing...";
+      |                                 ^~~~~~~~~~~~~~~
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h: At top level:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+arm-none-eabi-gcc -o "Integration.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/zawad/Documents/EECS373/project/Integration/STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="Integration.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.0.100.202403111906/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: warning: Integration.elf has a LOAD segment with RWX permissions
+Finished building target: Integration.elf
+ 
+arm-none-eabi-size  Integration.elf 
+arm-none-eabi-objdump -h -S Integration.elf  > "Integration.list"
+   text	   data	    bss	    dec	    hex	filename
+  29976	    104	   3120	  33200	   81b0	Integration.elf
+Finished building: default.size.stdout
+ 
+Finished building: Integration.list
+ 
+18:15:28 **** Incremental Build of configuration Debug for project Integration ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/Screens.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Screens.d" -MT"Core/Src/Screens.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Screens.o"
+In file included from ../Core/Inc/ili9488.h:15,
+                 from ../Core/Inc/Screens.h:11,
+                 from ../Core/Src/Screens.c:7:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+../Core/Src/Screens.c: In function 'authenticate':
+../Core/Src/Screens.c:15:12: warning: implicit declaration of function 'drawCharTest'; did you mean 'drawChar'? [-Wimplicit-function-declaration]
+   15 |            drawCharTest(130, 55, '1', ILI9488_WHITE,ILI9488_RED, 3);
+      |            ^~~~~~~~~~~~
+      |            drawChar
+../Core/Src/Screens.c: In function 'Dispense':
+../Core/Src/Screens.c:214:33: warning: initializer-string for array of 'char' is too long
+  214 |         char success_msg [10] = "Dispensing...";
+      |                                 ^~~~~~~~~~~~~~~
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h: At top level:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+arm-none-eabi-gcc -o "Integration.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/zawad/Documents/EECS373/project/Integration/STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="Integration.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.0.100.202403111906/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: warning: Integration.elf has a LOAD segment with RWX permissions
+Finished building target: Integration.elf
+ 
+arm-none-eabi-size  Integration.elf 
+arm-none-eabi-objdump -h -S Integration.elf  > "Integration.list"
+   text	   data	    bss	    dec	    hex	filename
+  31588	    104	   3120	  34812	   87fc	Integration.elf
+Finished building: default.size.stdout
+ 
+Finished building: Integration.list
+ 
+18:16:05 **** Incremental Build of configuration Debug for project Integration ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/Screens.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Screens.d" -MT"Core/Src/Screens.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Screens.o"
+In file included from ../Core/Inc/ili9488.h:15,
+                 from ../Core/Inc/Screens.h:11,
+                 from ../Core/Src/Screens.c:7:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+../Core/Src/Screens.c: In function 'authenticate':
+../Core/Src/Screens.c:15:12: warning: implicit declaration of function 'drawCharTest'; did you mean 'drawChar'? [-Wimplicit-function-declaration]
+   15 |            drawCharTest(130, 55, '1', ILI9488_WHITE,ILI9488_RED, 3);
+      |            ^~~~~~~~~~~~
+      |            drawChar
+../Core/Src/Screens.c: In function 'Dispense':
+../Core/Src/Screens.c:214:33: warning: initializer-string for array of 'char' is too long
+  214 |         char success_msg [10] = "Dispensing...";
+      |                                 ^~~~~~~~~~~~~~~
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h: At top level:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+arm-none-eabi-gcc -o "Integration.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/zawad/Documents/EECS373/project/Integration/STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="Integration.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.0.100.202403111906/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: warning: Integration.elf has a LOAD segment with RWX permissions
+Finished building target: Integration.elf
+ 
+arm-none-eabi-size  Integration.elf 
+arm-none-eabi-objdump -h -S Integration.elf  > "Integration.list"
+   text	   data	    bss	    dec	    hex	filename
+  31580	    104	   3120	  34804	   87f4	Integration.elf
+Finished building: default.size.stdout
+ 
+Finished building: Integration.list
+ 
+18:18:59 **** Incremental Build of configuration Debug for project Integration ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/Screens.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L4R5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Screens.d" -MT"Core/Src/Screens.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Screens.o"
+In file included from ../Core/Inc/ili9488.h:15,
+                 from ../Core/Inc/Screens.h:11,
+                 from ../Core/Src/Screens.c:7:
+../Core/Inc/main.h:38:19: warning: extra tokens at end of #include directive
+   38 | #include "Pills.h";
+      |                   ^
+../Core/Src/Screens.c: In function 'authenticate':
+../Core/Src/Screens.c:15:12: warning: implicit declaration of function 'drawCharTest'; did you mean 'drawChar'? [-Wimplicit-function-declaration]
+   15 |            drawCharTest(130, 55, '1', ILI9488_WHITE,ILI9488_RED, 3);
+      |            ^~~~~~~~~~~~
+      |            drawChar
+../Core/Src/Screens.c: In function 'Dispense':
+../Core/Src/Screens.c:214:33: warning: initializer-string for array of 'char' is too long
+  214 |         char success_msg [10] = "Dispensing...";
+      |                                 ^~~~~~~~~~~~~~~
+In file included from ../Core/Inc/main.h:38:
+../Core/Inc/Pills.h: At top level:
+../Core/Inc/Pills.h:14:16: warning: 'numPills' defined but not used [-Wunused-variable]
+   14 | static uint8_t numPills;
+      |                ^~~~~~~~
+arm-none-eabi-gcc -o "Integration.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/zawad/Documents/EECS373/project/Integration/STM32L4R5ZITXP_FLASH.ld" --specs=nosys.specs -Wl,-Map="Integration.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.macos64_1.0.100.202403111906/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld: warning: Integration.elf has a LOAD segment with RWX permissions
+Finished building target: Integration.elf
+ 
+arm-none-eabi-size  Integration.elf 
+arm-none-eabi-objdump -h -S Integration.elf  > "Integration.list"
+   text	   data	    bss	    dec	    hex	filename
+  31588	    104	   3120	  34812	   87fc	Integration.elf
+Finished building: default.size.stdout
+ 
+Finished building: Integration.list
+ 
