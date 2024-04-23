@@ -1,5 +1,5 @@
 import serial
-
+from struct import pack, unpack
 ser = serial.Serial('/dev/tty.usbserial-A9WDK2F4', 115200, timeout=0)
 
 from datetime import datetime
@@ -60,17 +60,15 @@ while (1):
     if (s == bytes([0xa7])):
         print("received ", s)
         ser.write(bytes([1])) #number of pills.
+        print("wrote ", bytes([1]))
         #wait for response
-        while(ser.read(1) != bytes([0xa7])):
-            continue
-        print("received response", s)
-        ser.write(bytes([12])) #Packet Size.
         while(ser.read(1) != bytes([0xa7])):
             continue
         print("received response 2", s)
         ser.write(bytes([0]))  #Dispenser NUm
-        ser.write("MEEWOpp\0".encode(encoding="ascii"))
-        ser.write(bytes([1])) #day of week [SUNDAY]
+        ser.write("TESTPILL\0".encode(encoding="ascii")) 
+        ser.write(bytes(25 - 9))
+        ser.write(bytes([0])) #day of week [SUNDAY]
         ser.write(bytes([2])) #8am
         ser.write(bytes([30])) #:00
 

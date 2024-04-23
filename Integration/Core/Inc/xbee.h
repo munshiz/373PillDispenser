@@ -12,7 +12,6 @@
 void xbee_init(UART_HandleTypeDef * uart_handle);
 
 void systemInit();
-
 void xbeeGetHour();
 void xbeeGetMin();
 void xbeeGetYear();

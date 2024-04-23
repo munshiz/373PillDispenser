@@ -8,4 +8,4 @@
 ../Core/Src/xbee.c:94:7:xbeeGetSec	16	static
 ../Core/Src/xbee.c:103:7:xbeeGetDate	16	static
 ../Core/Src/xbee.c:112:6:xbeeUploadPills	4	static
-../Core/Src/xbee.c:117:6:xbeeDownloadPills	168	static
+../Core/Src/xbee.c:117:6:xbeeDownloadPills	160	static

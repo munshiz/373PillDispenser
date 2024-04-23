@@ -1030,3 +1030,56 @@ void write16BitColor(uint16_t color)
 	  //HAL_SPI_Transmit(&hspi2, (uint8_t *)&b, 1, 10);
 
 }
+
+void LCD_Char(int16_t x, int16_t y, const GFXglyph *glyph, const GFXfont *font,
+              uint8_t size, uint32_t color24) {
+  uint8_t *bitmap = font->bitmap;
+  uint16_t bo = glyph->bitmapOffset;
+  uint8_t bits = 0, bit = 0;
+  uint16_t set_pixels = 0;
+  uint8_t cur_x, cur_y;
+  for (cur_y = 0; cur_y < glyph->height; cur_y++) {
+    for (cur_x = 0; cur_x < glyph->width; cur_x++) {
+      if (bit == 0) {
+        bits = (*(const unsigned char *)(&bitmap[bo++]));
+        bit = 0x80;
+      }
+      if (bits & bit)
+        set_pixels++;
+      else if (set_pixels > 0) {
+        fillRect(x + (glyph->xOffset + cur_x - set_pixels) * size,
+                 y + (glyph->yOffset + cur_y) * size, size * set_pixels, size,
+                 color24);
+        set_pixels = 0;
+      }
+      bit >>= 1;
+    }
+    if (set_pixels > 0) {
+      fillRect(x + (glyph->xOffset + cur_x - set_pixels) * size,
+               y + (glyph->yOffset + cur_y) * size, size * set_pixels, size,
+               color24);
+      set_pixels = 0;
+    }
+  }
+}
+
+void LCD_Font(uint16_t x, uint16_t y, const char *text, const GFXfont *p_font,
+              uint8_t size, uint32_t color24) {
+  int16_t cursor_x = x;
+  int16_t cursor_y = y;
+  GFXfont font;
+  memcpy(&font, p_font, sizeof(GFXfont));
+  for (uint16_t text_pos = 0; text_pos < strlen(text); text_pos++) {
+    char c = text[text_pos];
+    if (c == '\n') {
+      cursor_x = x;
+      cursor_y += font.yAdvance * size;
+    } else if (c >= font.first && c <= font.last && c != '\r') {
+      GFXglyph glyph;
+      memcpy(&glyph, &font.glyph[c - font.first], sizeof(GFXglyph));
+      LCD_Char(cursor_x, cursor_y, &glyph, &font, size, color24);
+      cursor_x += glyph.xAdvance * size;
+    }
+  }
+}
+

@@ -1,4 +1,5 @@
 "./Core/Src/Pills.o"
+"./Core/Src/Pixy.o"
 "./Core/Src/Screens.o"
 "./Core/Src/ds1307.o"
 "./Core/Src/ili9488.o"

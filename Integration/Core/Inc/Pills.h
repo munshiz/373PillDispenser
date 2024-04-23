@@ -9,7 +9,7 @@
 #define INC_PILLS_H_
 
 #include "ds1307.h"
-#include <stdint.h>
+#include "stdint.h"
 
 static uint8_t numPills;
 typedef struct {
@@ -29,9 +29,10 @@ pillEntry getPillInfo(uint8_t idx);
 uint8_t get_next_pill_idx();
 uint8_t updatelastTakenPill();
 uint8_t update_next_pill_idx(uint8_t dayofweek, uint8_t hour, uint8_t min);
-
+uint8_t dispenserAvailable(uint8_t disp);
+void deleteDispenser(uint8_t disp);
 uint8_t getNumPills();
-
+void loadNewPillsDisplay(uint8_t dispNum, uint8_t pillOption, uint8_t * daysofWeek, uint8_t hour, uint8_t Minute, uint8_t AMPM);
 void clearPillList();
 
 //explicitly ONLY for when we are loading in a pre-sorted list of entries.

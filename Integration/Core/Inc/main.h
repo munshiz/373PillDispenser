@@ -35,7 +35,7 @@ extern "C" {
 #include "xpt2046.h"
 #include "Screens.h"
 #include "ds1307.h"
-#include "Pills.h";
+#include "Pills.h"
 #include "xbee.h"
 
 /* USER CODE END Includes */
@@ -71,6 +71,20 @@ void Error_Handler(void);
 #define Stepper_Step_GPIO_Port GPIOC
 #define Stepper_Dir_Pin GPIO_PIN_1
 #define Stepper_Dir_GPIO_Port GPIOC
+#define Pixy_CS_Pin GPIO_PIN_4
+#define Pixy_CS_GPIO_Port GPIOA
+#define Actuator2_IN1_Pin GPIO_PIN_13
+#define Actuator2_IN1_GPIO_Port GPIOF
+#define Actuator3_In1_Pin GPIO_PIN_14
+#define Actuator3_In1_GPIO_Port GPIOF
+#define Actuator_3_EN_Pin GPIO_PIN_15
+#define Actuator_3_EN_GPIO_Port GPIOF
+#define Actuator2_IN2_Pin GPIO_PIN_9
+#define Actuator2_IN2_GPIO_Port GPIOE
+#define Actuator2_En_Pin GPIO_PIN_11
+#define Actuator2_En_GPIO_Port GPIOE
+#define Actuator_3_In2_Pin GPIO_PIN_13
+#define Actuator_3_In2_GPIO_Port GPIOE
 #define NSS_Pin GPIO_PIN_12
 #define NSS_GPIO_Port GPIOB
 #define Actuator_1_EN_Pin GPIO_PIN_9

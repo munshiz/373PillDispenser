@@ -33,7 +33,17 @@ Core/Src/Screens.o: ../Core/Src/Screens.c ../Core/Inc/Screens.h \
  ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h \
  ../Core/Inc/main.h ../Core/Inc/xpt2046.h ../Core/Inc/Screens.h \
  ../Core/Inc/ds1307.h ../Core/Inc/Pills.h ../Core/Inc/xbee.h \
- ../Core/Inc/ds1307.h ../Core/Inc/Pills.h
+ ../Core/Inc/ds1307.h ../Core/Inc/Pills.h ../Core/Inc/Stepper.h \
+ ../Core/Inc/Pixy.h ../Core/Src/008_Open_Sans_Bold.h \
+ ../Core/Src/009_Open_Sans_Bold.h ../Core/Src/010_Open_Sans_Bold.h \
+ ../Core/Src/012_Open_Sans_Bold.h ../Core/Src/014_Open_Sans_Bold.h \
+ ../Core/Src/016_Open_Sans_Bold.h ../Core/Src/018_Open_Sans_Bold.h \
+ ../Core/Src/020_Open_Sans_Bold.h ../Core/Src/022_Open_Sans_Bold.h \
+ ../Core/Src/024_Open_Sans_Bold.h ../Core/Src/026_Open_Sans_Bold.h \
+ ../Core/Src/028_Open_Sans_Bold.h ../Core/Src/036_Open_Sans_Bold.h \
+ ../Core/Src/048_Open_Sans_Bold.h ../Core/Src/072_Open_Sans_Bold.h \
+ ../Core/Src/096_Open_Sans_Bold.h ../Core/Src/112_Open_Sans_Bold.h \
+ ../Core/Src/128_Open_Sans_Bold.h
 ../Core/Inc/Screens.h:
 ../Core/Inc/ili9488.h:
 ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
@@ -75,3 +85,23 @@ Core/Src/Screens.o: ../Core/Src/Screens.c ../Core/Inc/Screens.h \
 ../Core/Inc/xbee.h:
 ../Core/Inc/ds1307.h:
 ../Core/Inc/Pills.h:
+../Core/Inc/Stepper.h:
+../Core/Inc/Pixy.h:
+../Core/Src/008_Open_Sans_Bold.h:
+../Core/Src/009_Open_Sans_Bold.h:
+../Core/Src/010_Open_Sans_Bold.h:
+../Core/Src/012_Open_Sans_Bold.h:
+../Core/Src/014_Open_Sans_Bold.h:
+../Core/Src/016_Open_Sans_Bold.h:
+../Core/Src/018_Open_Sans_Bold.h:
+../Core/Src/020_Open_Sans_Bold.h:
+../Core/Src/022_Open_Sans_Bold.h:
+../Core/Src/024_Open_Sans_Bold.h:
+../Core/Src/026_Open_Sans_Bold.h:
+../Core/Src/028_Open_Sans_Bold.h:
+../Core/Src/036_Open_Sans_Bold.h:
+../Core/Src/048_Open_Sans_Bold.h:
+../Core/Src/072_Open_Sans_Bold.h:
+../Core/Src/096_Open_Sans_Bold.h:
+../Core/Src/112_Open_Sans_Bold.h:
+../Core/Src/128_Open_Sans_Bold.h:

@@ -135,6 +135,20 @@
 #define pgm_read_byte(addr) (*(const unsigned char *)(addr))
 #define min(a,b) (((a)<(b))?(a):(b))
 
+typedef struct { // Data stored PER GLYPH
+	uint16_t bitmapOffset;     // Pointer into GFXfont->bitmap
+	uint8_t  width, height;    // Bitmap dimensions in pixels
+	uint8_t  xAdvance;         // Distance to advance cursor (x axis)
+	int8_t   xOffset, yOffset; // Dist from cursor position to UL corner
+} GFXglyph;
+
+typedef struct { // Data stored for FONT AS A WHOLE:
+	uint8_t  *bitmap;      // Glyph bitmaps, concatenated
+	GFXglyph *glyph;       // Glyph array
+	uint8_t   first, last; // ASCII extents
+	uint8_t   yAdvance;    // Newline distance (y axis)
+} GFXfont;
+
 //***** Functions prototypes *****//
 //1. Write Command to LCD
 void ILI9341_SendCommand(uint8_t com);
@@ -171,6 +185,11 @@ void ILI9488_printText(char text[], int16_t x, int16_t y, uint16_t color, uint16
 void write16BitColor(uint16_t color);
 
 void testLines(uint8_t color);
+
+void LCD_Font(uint16_t x, uint16_t y, const char *text, const GFXfont *p_font, uint8_t size, uint32_t color24);
+
+
+void LCD_Char(int16_t x, int16_t y, const GFXglyph *glyph, const GFXfont *font,uint8_t size, uint32_t color24);
 
 
 
