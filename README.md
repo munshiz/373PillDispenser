@@ -2,15 +2,13 @@
 
 ![image](https://github.com/munshiz/373PillDispenser/assets/32941432/359defa3-f660-41f4-8495-b03be2a7bd7f)
 
-Final Project for [EECS 373](https://www.eecs.umich.edu/courses/eecs373/) at the University of Michigan - Introduction to Embedded Systems Design
-
-
-![image](https://github.com/munshiz/373PillDispenser/assets/32941432/cd31d24f-11a2-45d0-8d44-4e4f5d8ae88b)
-
+Final Project for [EECS 373](https://www.eecs.umich.edu/courses/eecs373/description.html) at the University of Michigan - Introduction to Embedded Systems Design
 
 ## Description
 
 PillPal: an intuitive pill dispenser. With an user friendly LCD touchscreen, one can easily input their personalized pill schedule. PillPal also goes the extra mile with features like pill identification, biometric and keypad security system, and real-time alerts.
+
+![image](https://github.com/munshiz/373PillDispenser/assets/32941432/cd31d24f-11a2-45d0-8d44-4e4f5d8ae88b)
 
 ### Hardware
 
