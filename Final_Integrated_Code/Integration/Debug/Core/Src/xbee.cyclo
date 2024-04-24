@@ -1,0 +1,11 @@
+../Core/Src/xbee.c:33:6:xbee_init	1
+../Core/Src/xbee.c:38:6:systemInit	1
+../Core/Src/xbee.c:49:7:xbeeGetHour	1
+../Core/Src/xbee.c:61:7:xbeeGetMin	1
+../Core/Src/xbee.c:69:7:xbeeGetYear	1
+../Core/Src/xbee.c:77:7:xbeeGetDayOfWeek	1
+../Core/Src/xbee.c:85:7:xbeeGetMonth	1
+../Core/Src/xbee.c:94:7:xbeeGetSec	1
+../Core/Src/xbee.c:103:7:xbeeGetDate	1
+../Core/Src/xbee.c:112:6:xbeeUploadPills	1
+../Core/Src/xbee.c:117:6:xbeeDownloadPills	2

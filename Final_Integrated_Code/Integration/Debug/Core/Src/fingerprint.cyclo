@@ -1,0 +1,5 @@
+../Core/Src/fingerprint.c:22:6:fingerprint_init	1
+../Core/Src/fingerprint.c:27:5:fingerprintAddPrint	1
+../Core/Src/fingerprint.c:36:5:fingerprintScanPrint	1
+../Core/Src/fingerprint.c:45:5:fingerprintRemovePrint	1
+../Core/Src/fingerprint.c:55:9:fingerprint_UART_read	1

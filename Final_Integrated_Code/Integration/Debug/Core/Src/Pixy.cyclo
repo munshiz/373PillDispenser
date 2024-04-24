@@ -1,0 +1,4 @@
+../Core/Src/Pixy.c:6:6:Pixy_init	1
+../Core/Src/Pixy.c:9:6:sendToPixy	1
+../Core/Src/Pixy.c:23:6:recvFromPixy	1
+../Core/Src/Pixy.c:35:9:Scan	9
