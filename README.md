@@ -1,6 +1,8 @@
 # PillPall - An Automated Pill Dispenser
 
-Final Project for EECS 373 at the University of Michigan - Introduction to Embedded Systems Design
+![image](https://github.com/munshiz/373PillDispenser/assets/32941432/359defa3-f660-41f4-8495-b03be2a7bd7f)
+
+Final Project for [EECS 373](https://www.eecs.umich.edu/courses/eecs373/) at the University of Michigan - Introduction to Embedded Systems Design
 
 
 ![image](https://github.com/munshiz/373PillDispenser/assets/32941432/cd31d24f-11a2-45d0-8d44-4e4f5d8ae88b)
@@ -22,6 +24,8 @@ PillPal: an intuitive pill dispenser. With an user friendly LCD touchscreen, one
 * [Linear Actuator](https://www.amazon.com/NORJIN-Electric-Actuator-Waterproof-Projects/dp/B0BK13M8N5/)
 * L293D H-Bridge
 * DS1307 RTC
+
+![image](https://github.com/munshiz/373PillDispenser/assets/32941432/3363024f-e48a-49e5-be43-8be0dd7f632b)
 
 ## Authors
 
