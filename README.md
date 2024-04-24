@@ -8,7 +8,7 @@ Final Project for EECS 373 at the University of Michigan - Introduction to Embed
 
 ## Description
 
-PillPal: an intuitive pill dispenser. With an user friendly LCD touchscreen, one can easily input their personalized pill schedule. PillPal also goes the extra mile with features like pill identification, biometric and keypad security system, and real-time alerts..
+PillPal: an intuitive pill dispenser. With an user friendly LCD touchscreen, one can easily input their personalized pill schedule. PillPal also goes the extra mile with features like pill identification, biometric and keypad security system, and real-time alerts.
 
 ### Hardware
 
