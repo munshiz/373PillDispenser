@@ -25,10 +25,10 @@ PillPal: an intuitive pill dispenser. With an user friendly LCD touchscreen, one
 ## Authors
 
 Contributors names and contact info
-[Zawad Munshi] {munshiz@umich.edu}
-[Akshaya Naapa Ramesh] {akshayan@umich.edu}
-[Shikhar Verma] {shikharv@umich.edu}
-[Neel Vora] {neelnv@umich.edu}
+* [Zawad Munshi] {munshiz@umich.edu}
+* [Akshaya Naapa Ramesh] {akshayan@umich.edu}
+* [Shikhar Verma] {shikharv@umich.edu}
+* [Neel Vora] {neelnv@umich.edu}
 
 ## Acknowledgments
 
