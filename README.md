@@ -18,17 +18,17 @@ PillPal: an intuitive pill dispenser. With an user friendly LCD touchscreen, one
 * DFRobot Fingerprint Sensor
 * Arduino Uno
 * A4988 Stepper Controller
-* [Sparkfun Stepper] {https://www.sparkfun.com/products/9238}
-* [Linear Actuator] {https://www.amazon.com/NORJIN-Electric-Actuator-Waterproof-Projects/dp/B0BK13M8N5/}
+* [Sparkfun Stepper](https://www.sparkfun.com/products/9238)
+* [Linear Actuator](https://www.amazon.com/NORJIN-Electric-Actuator-Waterproof-Projects/dp/B0BK13M8N5/)
 * L293D H-Bridge
 
 ## Authors
 
 Contributors names and contact info
-* [Zawad Munshi] {munshiz@umich.edu}
-* [Akshaya Naapa Ramesh] {akshayan@umich.edu}
-* [Shikhar Verma] {shikharv@umich.edu}
-* [Neel Vora] {neelnv@umich.edu}
+* [Zawad Munshi](munshiz@umich.edu)
+* [Akshaya Naapa Ramesh](akshayan@umich.edu)
+* [Shikhar Verma](shikharv@umich.edu)
+* [Neel Vora](neelnv@umich.edu)
 
 ## Acknowledgments
 
