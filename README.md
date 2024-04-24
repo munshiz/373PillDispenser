@@ -21,6 +21,7 @@ PillPal: an intuitive pill dispenser. With an user friendly LCD touchscreen, one
 * [Sparkfun Stepper](https://www.sparkfun.com/products/9238)
 * [Linear Actuator](https://www.amazon.com/NORJIN-Electric-Actuator-Waterproof-Projects/dp/B0BK13M8N5/)
 * L293D H-Bridge
+* DS1307 RTC
 
 ## Authors
 
