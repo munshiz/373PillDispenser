@@ -14,7 +14,7 @@ PillPal: an intuitive pill dispenser. With an user friendly LCD touchscreen, one
 
 * STM32L4R5ZI MCU (NUCLEO-L4R5ZI Development Board)
 * XBEE S2C Module
-* ILI9488 TFT Display
+* 480x320 3.5" TFT LCD Display w/ ILI9488 Driver + XPT2046 Touch Controller
 * Pixy2 Vision Camera
 * DFRobot Fingerprint Sensor
 * Arduino Uno
