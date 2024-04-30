@@ -36,4 +36,4 @@ Contributors names and contact info
 
 ## Acknowledgments
 
-Various Code libraries
+Various Code Libraries
