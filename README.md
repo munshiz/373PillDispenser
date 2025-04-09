@@ -1,4 +1,4 @@
-# PillPall - An Automated Pill Dispenser
+# PillPal - An Automated Pill Dispenser
 
 ![image](https://github.com/munshiz/373PillDispenser/assets/32941432/359defa3-f660-41f4-8495-b03be2a7bd7f)
 
